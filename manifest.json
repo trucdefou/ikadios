@@ -1,0 +1,174 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "version": "0.1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ikadios@ikadios.local",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "default_locale": "en",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "notifications",
+    "alarms",
+    "tabs",
+    "offscreen",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "https://*.ikariam.gameforge.com/*",
+    "https://discord.com/api/*",
+    "https://discordapp.com/api/webhooks/*",
+    "https://ptb.discord.com/api/webhooks/*",
+    "https://canary.discord.com/api/webhooks/*",
+    "https://api.ika-map.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": [
+      "src/shared/util.js",
+      "src/shared/i18n.js",
+      "src/shared/schema.js",
+      "src/content/parsers/index.js",
+      "src/content/parsers/global.js",
+      "src/content/parsers/city.js",
+      "src/content/parsers/upgrade.js",
+      "src/content/parsers/views.js",
+      "src/content/parsers/views-data.js",
+      "src/content/parsers/world.js",
+      "src/content/facets/index.js",
+      "src/shared/refresh-plan.js",
+      "src/shared/discord-events.js",
+      "src/shared/capture-filter.js",
+      "src/shared/trade-link.js",
+      "src/shared/map-share.js",
+      "src/shared/battle-report.js",
+      "src/shared/battle-rounds.js",
+      "src/shared/intel-link.js",
+      "src/shared/intel-apply.js",
+      "src/shared/automation-plan.js",
+      "src/background/idb.js",
+      "src/background/captures.js",
+      "src/background/notify.js",
+      "src/background/refresh-engine.js",
+      "src/background/discord.js",
+      "src/background/ikamap.js",
+      "src/background/automation.js",
+      "src/background/combat.js",
+      "src/background/alliance.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ikariam.gameforge.com/*"
+      ],
+      "js": [
+        "src/page/hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://*.ikariam.gameforge.com/*"
+      ],
+      "js": [
+        "src/shared/util.js",
+        "src/shared/i18n.js",
+        "src/shared/schema.js",
+        "src/shared/packs.js",
+        "src/shared/refresh-plan.js",
+        "src/shared/capture-filter.js",
+        "src/shared/trade-link.js",
+        "src/shared/map-share.js",
+        "src/content/store.js",
+        "src/content/parsers/index.js",
+        "src/content/parsers/global.js",
+        "src/content/parsers/city.js",
+        "src/content/parsers/upgrade.js",
+        "src/content/parsers/views.js",
+        "src/content/parsers/views-data.js",
+        "src/content/parsers/world.js",
+        "src/content/facets/index.js",
+        "src/shared/alerts.js",
+        "src/shared/automation-plan.js",
+        "src/shared/battle-report.js",
+        "src/shared/battle-rounds.js",
+        "src/shared/fleet-track.js",
+        "src/shared/intel-link.js",
+        "src/shared/intel-apply.js",
+        "src/content/world-data.js",
+        "src/content/map-layers.js",
+        "src/content/overlay/share.js",
+        "src/content/overlay/icons.js",
+        "src/content/overlay/battle-view.js",
+        "src/content/overlay/intel-prompt.js",
+        "src/content/alliance-auto.js",
+        "src/content/overlay/tabs/summary.js",
+        "src/content/overlay/tabs/polis.js",
+        "src/content/overlay/tabs/military.js",
+        "src/content/overlay/tabs/research.js",
+        "src/content/overlay/tabs/transport.js",
+        "src/content/overlay/tabs/finances.js",
+        "src/content/overlay/tabs/diplomacy.js",
+        "src/content/overlay/tabs/espionage.js",
+        "src/content/overlay/tabs/trade.js",
+        "src/content/overlay/tabs/islands.js",
+        "src/content/overlay/tabs/players.js",
+        "src/content/overlay/tabs/alliance.js",
+        "src/content/overlay/tabs/map.js",
+        "src/content/overlay/tabs/automation.js",
+        "src/content/overlay/game-skin.js",
+        "src/content/overlay/overlay.js",
+        "src/content/advisors-skin.js",
+        "src/content/bridge.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "_locales/*/messages.json",
+        "src/content/overlay/overlay.css",
+        "icons/emblem.png",
+        "packs/*.json"
+      ],
+      "matches": [
+        "https://*.ikariam.gameforge.com/*"
+      ]
+    }
+  ],
+  "commands": {
+    "toggle-overlay": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "__MSG_cmdToggleOverlay__"
+    }
+  },
+  "options_page": "options/options.html",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

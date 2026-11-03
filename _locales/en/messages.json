@@ -1,0 +1,2864 @@
+{
+  "extName": {
+    "message": "IkaDios"
+  },
+  "extDescription": {
+    "message": "Ikariam overview of every facet, map, automations and custom advisor images."
+  },
+  "cmdToggleOverlay": {
+    "message": "Show or hide the IkaDios panel"
+  },
+  "durationDH": {
+    "message": "{d}d {h}h"
+  },
+  "durationHM": {
+    "message": "{h}h {m}m"
+  },
+  "durationMS": {
+    "message": "{m}m {s}s"
+  },
+  "never": {
+    "message": "never"
+  },
+  "done": {
+    "message": "done"
+  },
+  "minimize": {
+    "message": "Minimize"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "renderError": {
+    "message": "This tab could not be drawn. Check the console for details."
+  },
+  "openInGame": {
+    "message": "Open in game"
+  },
+  "updated": {
+    "message": "Updated {when}"
+  },
+  "tab_summary": {
+    "message": "Summary"
+  },
+  "tab_polis": {
+    "message": "Polis"
+  },
+  "tab_military": {
+    "message": "Military"
+  },
+  "tab_research": {
+    "message": "Research"
+  },
+  "tab_transport": {
+    "message": "Transport"
+  },
+  "tab_diplomacy": {
+    "message": "Diplomacy"
+  },
+  "tab_espionage": {
+    "message": "Espionage"
+  },
+  "tab_trade": {
+    "message": "Trade"
+  },
+  "tab_finances": {
+    "message": "Finances"
+  },
+  "tab_islands": {
+    "message": "Islands"
+  },
+  "tab_map": {
+    "message": "Map"
+  },
+  "tab_automation": {
+    "message": "Automation"
+  },
+  "pending_military": {
+    "message": "Open the military advisor so IkaDios can read troop movements."
+  },
+  "pending_research": {
+    "message": "Open the research advisor so IkaDios can read your research."
+  },
+  "pending_diplomacy": {
+    "message": "Open the diplomacy advisor so IkaDios can read messages and treaties."
+  },
+  "pending_espionage": {
+    "message": "Open your hideouts so IkaDios can read your spies."
+  },
+  "pending_trade": {
+    "message": "Open a trading post and search the market so IkaDios can read the offers."
+  },
+  "pending_islands": {
+    "message": "Visit your islands so IkaDios can read resources and wonders."
+  },
+  "pending_map": {
+    "message": "The map arrives in a later version."
+  },
+  "gold": {
+    "message": "Gold"
+  },
+  "ambrosia": {
+    "message": "Ambrosia"
+  },
+  "transporters": {
+    "message": "Merchant ships"
+  },
+  "cities": {
+    "message": "Cities"
+  },
+  "city": {
+    "message": "City"
+  },
+  "citizens": {
+    "message": "Citizens"
+  },
+  "wineLeft": {
+    "message": "Wine left"
+  },
+  "construction": {
+    "message": "Construction"
+  },
+  "perHour": {
+    "message": "{value} per hour"
+  },
+  "fullIn": {
+    "message": "Full in {time}"
+  },
+  "emptySummary": {
+    "message": "No data yet. Play normally: IkaDios fills in as you open your cities."
+  },
+  "advisorActive_cities": {
+    "message": "Cities advisor has news"
+  },
+  "advisorActive_military": {
+    "message": "Military advisor has news"
+  },
+  "advisorActive_research": {
+    "message": "Research advisor has news"
+  },
+  "advisorActive_diplomacy": {
+    "message": "Diplomacy advisor has news"
+  },
+  "resource_wood": {
+    "message": "Building material"
+  },
+  "resource_wine": {
+    "message": "Wine"
+  },
+  "resource_marble": {
+    "message": "Marble"
+  },
+  "resource_glass": {
+    "message": "Crystal glass"
+  },
+  "resource_sulfur": {
+    "message": "Sulphur"
+  },
+  "resourceShort_wood": {
+    "message": "Wood"
+  },
+  "resourceShort_wine": {
+    "message": "Wine"
+  },
+  "resourceShort_marble": {
+    "message": "Marble"
+  },
+  "resourceShort_glass": {
+    "message": "Crystal"
+  },
+  "resourceShort_sulfur": {
+    "message": "Sulphur"
+  },
+  "emptyPolis": {
+    "message": "Open each of your cities once to see its buildings here."
+  },
+  "hintPolis": {
+    "message": "* marks the capital. With several buildings of a type, the lowest level is shown."
+  },
+  "upgrading": {
+    "message": "Upgrading"
+  },
+  "transportersFree": {
+    "message": "Free merchant ships"
+  },
+  "freightersFree": {
+    "message": "Free freighters"
+  },
+  "emptyTransport": {
+    "message": "No transport movements captured yet."
+  },
+  "openMilitaryAdvisor": {
+    "message": "Open military advisor"
+  },
+  "origin": {
+    "message": "Origin"
+  },
+  "destination": {
+    "message": "Destination"
+  },
+  "cargo": {
+    "message": "Cargo"
+  },
+  "arrival": {
+    "message": "Arrival"
+  },
+  "netPerHour": {
+    "message": "Net per hour"
+  },
+  "goldRunsOutIn": {
+    "message": "Gold runs out in"
+  },
+  "income": {
+    "message": "Income"
+  },
+  "upkeep": {
+    "message": "Upkeep"
+  },
+  "scientistsUpkeep": {
+    "message": "Scientists"
+  },
+  "godGold": {
+    "message": "Gods"
+  },
+  "openFinances": {
+    "message": "Open finances"
+  },
+  "building_townHall": {
+    "message": "Town hall"
+  },
+  "building_academy": {
+    "message": "Academy"
+  },
+  "building_warehouse": {
+    "message": "Warehouse"
+  },
+  "building_tavern": {
+    "message": "Tavern"
+  },
+  "building_palace": {
+    "message": "Palace"
+  },
+  "building_palaceColony": {
+    "message": "Governor's residence"
+  },
+  "building_museum": {
+    "message": "Museum"
+  },
+  "building_port": {
+    "message": "Trading port"
+  },
+  "building_shipyard": {
+    "message": "Shipyard"
+  },
+  "building_barracks": {
+    "message": "Barracks"
+  },
+  "building_wall": {
+    "message": "Town wall"
+  },
+  "building_embassy": {
+    "message": "Embassy"
+  },
+  "building_branchOffice": {
+    "message": "Trading post"
+  },
+  "building_workshop": {
+    "message": "Workshop"
+  },
+  "building_safehouse": {
+    "message": "Hideout"
+  },
+  "building_forester": {
+    "message": "Forester's house"
+  },
+  "building_glassblowing": {
+    "message": "Glassblower"
+  },
+  "building_alchemist": {
+    "message": "Alchemist's tower"
+  },
+  "building_winegrower": {
+    "message": "Winegrower"
+  },
+  "building_stonemason": {
+    "message": "Stonemason"
+  },
+  "building_carpentering": {
+    "message": "Carpenter"
+  },
+  "building_optician": {
+    "message": "Optician"
+  },
+  "building_fireworker": {
+    "message": "Firework test area"
+  },
+  "building_vineyard": {
+    "message": "Wine press"
+  },
+  "building_architect": {
+    "message": "Architect's office"
+  },
+  "building_temple": {
+    "message": "Temple"
+  },
+  "building_dump": {
+    "message": "Dump"
+  },
+  "building_pirateFortress": {
+    "message": "Pirate fortress"
+  },
+  "building_blackMarket": {
+    "message": "Black market"
+  },
+  "building_marineChartArchive": {
+    "message": "Sea chart archive"
+  },
+  "advisor_cities": {
+    "message": "Cities"
+  },
+  "advisor_military": {
+    "message": "Military"
+  },
+  "advisor_research": {
+    "message": "Research"
+  },
+  "advisor_diplomacy": {
+    "message": "Diplomacy"
+  },
+  "advisorState_normal": {
+    "message": "Normal"
+  },
+  "advisorState_active": {
+    "message": "With news"
+  },
+  "advisorState_premium": {
+    "message": "Premium"
+  },
+  "advisorState_premiumActive": {
+    "message": "Premium with news"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "edit": {
+    "message": "Edit"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "optSectionPacks": {
+    "message": "Advisor packs"
+  },
+  "optSectionGeneral": {
+    "message": "General"
+  },
+  "optSectionData": {
+    "message": "Data"
+  },
+  "optPacksIntro": {
+    "message": "Replace the four advisor images in the game. A pack holds one image per advisor and state, and can be exported to share it."
+  },
+  "optNewPack": {
+    "message": "New pack"
+  },
+  "optNewPackName": {
+    "message": "My pack"
+  },
+  "optImportPack": {
+    "message": "Import pack"
+  },
+  "optDropHere": {
+    "message": "Or drop a pack .json file here"
+  },
+  "optEditPack": {
+    "message": "Edit pack"
+  },
+  "optPackName": {
+    "message": "Name"
+  },
+  "optPackAuthor": {
+    "message": "Author"
+  },
+  "optEditorHint": {
+    "message": "Click a square to choose an image. Missing states use the normal image. Images are scaled down to 256 px; GIFs keep their animation."
+  },
+  "optAdvisor": {
+    "message": "Advisor"
+  },
+  "optLabelPlaceholder": {
+    "message": "Custom name (optional)"
+  },
+  "optPickImage": {
+    "message": "Choose image"
+  },
+  "optByAuthor": {
+    "message": "by {author}"
+  },
+  "optActive": {
+    "message": "Active"
+  },
+  "optActivate": {
+    "message": "Use"
+  },
+  "optDuplicate": {
+    "message": "Duplicate"
+  },
+  "optExport": {
+    "message": "Export"
+  },
+  "optCopyOf": {
+    "message": "Copy of {name}"
+  },
+  "optConfirmDelete": {
+    "message": "Delete the pack \"{name}\"?"
+  },
+  "optImported": {
+    "message": "Pack \"{name}\" imported."
+  },
+  "optImportFailed": {
+    "message": "Could not import: {reason}"
+  },
+  "optSaved": {
+    "message": "Saved."
+  },
+  "optLanguage": {
+    "message": "Language"
+  },
+  "optLanguageAuto": {
+    "message": "Automatic (game server)"
+  },
+  "optDebugCapture": {
+    "message": "Record raw game responses (debug)"
+  },
+  "optDebugHint": {
+    "message": "Only needed so IkaDios can learn new game screens. Choose what to record and for how long; it switches itself off."
+  },
+  "optExportDebug": {
+    "message": "Export captures"
+  },
+  "optClearDebug": {
+    "message": "Clear captures"
+  },
+  "optDebugCount_one": {
+    "message": "{n} capture stored"
+  },
+  "optDebugCount_other": {
+    "message": "{n} captures stored"
+  },
+  "optAccounts": {
+    "message": "Accounts"
+  },
+  "optCitiesCount_one": {
+    "message": "{n} city"
+  },
+  "optCitiesCount_other": {
+    "message": "{n} cities"
+  },
+  "optConfirmDeleteAccount": {
+    "message": "Delete all stored data for this account?"
+  },
+  "optNoAccounts": {
+    "message": "No accounts yet. Open the game to start."
+  },
+  "packErrNotObject": {
+    "message": "the file is not a pack"
+  },
+  "packErrNotJson": {
+    "message": "the file is not valid JSON"
+  },
+  "packErrFormat": {
+    "message": "unknown format"
+  },
+  "packErrVersion": {
+    "message": "pack made by a newer version"
+  },
+  "packErrName": {
+    "message": "the pack needs a name"
+  },
+  "packErrAdvisors": {
+    "message": "advisor list missing"
+  },
+  "packErrUnknownAdvisor": {
+    "message": "unknown advisor"
+  },
+  "packErrImageType": {
+    "message": "unsupported image type (use PNG, JPG, WebP or GIF)"
+  },
+  "packErrImageSize": {
+    "message": "an image is too large"
+  },
+  "packErrPackSize": {
+    "message": "the pack is too large"
+  },
+  "popupToggleOverlay": {
+    "message": "Show / hide panel"
+  },
+  "popupAdvisorPack": {
+    "message": "Advisor pack"
+  },
+  "popupOpenOptions": {
+    "message": "Settings"
+  },
+  "popupNoGameTab": {
+    "message": "Open an Ikariam world tab to use IkaDios."
+  },
+  "popupStatus": {
+    "message": "{world}: data updated {when}"
+  },
+  "popupWaitingData": {
+    "message": "{world}: waiting for game data"
+  },
+  "popupReloadTab": {
+    "message": "Reload the game tab to activate IkaDios."
+  },
+  "refreshAll": {
+    "message": "Refresh all"
+  },
+  "refreshCancel": {
+    "message": "Cancel"
+  },
+  "refreshHint": {
+    "message": "Loads every city, building and advisor view once, starting with what has no data or is oldest, in varied order with irregular pauses. It runs in the background, even with the game tab closed, and only when you click it or auto mode is on."
+  },
+  "refreshProgress": {
+    "message": "{pct}% ({done}/{total}): {step}"
+  },
+  "refreshDone_one": {
+    "message": "Refreshed {n} view ({failed} failed)"
+  },
+  "refreshDone_other": {
+    "message": "Refreshed {n} views ({failed} failed)"
+  },
+  "refreshCancelled_one": {
+    "message": "Cancelled after {n} view"
+  },
+  "refreshCancelled_other": {
+    "message": "Cancelled after {n} views"
+  },
+  "autoRefresh": {
+    "message": "Auto"
+  },
+  "autoRefreshHint": {
+    "message": "Repeat \"Refresh all\" automatically every ~{min} minutes (varies at random), in the background while Chrome is open, even without the game tab. Change the interval in Settings."
+  },
+  "autoNext": {
+    "message": "Next refresh {when}"
+  },
+  "autoPausedErrors": {
+    "message": "Refresh stopped: several views failed (session expired or captcha?). Log in to the game and click \"Refresh all\" to resume."
+  },
+  "lastUpdated": {
+    "message": "Updated {when}"
+  },
+  "optAutoRefreshMinutes": {
+    "message": "Auto refresh interval (minutes, minimum 10)"
+  },
+  "optAutoRefreshHint": {
+    "message": "Each run waits this long on average, plus or minus 30%. Shorter intervals mean more requests and more risk with the game rules."
+  },
+  "view_militaryAdvisor": {
+    "message": "Military advisor"
+  },
+  "view_researchAdvisor": {
+    "message": "Research advisor"
+  },
+  "view_diplomacyAdvisor": {
+    "message": "Diplomacy advisor"
+  },
+  "view_tradeAdvisor": {
+    "message": "Cities advisor"
+  },
+  "view_finances": {
+    "message": "Finances"
+  },
+  "stepMilitary": {
+    "message": "troops"
+  },
+  "stepIsland": {
+    "message": "island {name}"
+  },
+  "refreshUnavailable": {
+    "message": "Could not reach the extension. Reload this page (F5) after reloading IkaDios."
+  },
+  "extensionReloaded": {
+    "message": "IkaDios was updated. Reload the page (F5) to keep using it."
+  },
+  "advisorState_alert": {
+    "message": "Under attack"
+  },
+  "advisorState_premiumAlert": {
+    "message": "Premium under attack"
+  },
+  "polisAllLevels": {
+    "message": "All levels: {levels}"
+  },
+  "polisCostUnknown": {
+    "message": "Upgrade cost not captured yet. Open the building or use \"Refresh all\"."
+  },
+  "polisCanUpgrade": {
+    "message": "Enough resources for the next level"
+  },
+  "polisMissing": {
+    "message": "Missing: {list}"
+  },
+  "polisClickHint": {
+    "message": "Click to upgrade or downgrade"
+  },
+  "polisLevelChange": {
+    "message": "Level {from} to {to}"
+  },
+  "polisResource": {
+    "message": "Resource"
+  },
+  "polisNeeded": {
+    "message": "Needed"
+  },
+  "polisHave": {
+    "message": "In city"
+  },
+  "polisBalance": {
+    "message": "Balance"
+  },
+  "polisOk": {
+    "message": "OK"
+  },
+  "polisBuildTime": {
+    "message": "Build time: {time}"
+  },
+  "polisUpgrade": {
+    "message": "Upgrade"
+  },
+  "polisDowngrade": {
+    "message": "Downgrade"
+  },
+  "polisDowngradeHint": {
+    "message": "Opens the game's demolition window, where you confirm it. It cannot be undone."
+  },
+  "polisNotEnough": {
+    "message": "Not enough resources in this city"
+  },
+  "polisLegendOk": {
+    "message": "can upgrade"
+  },
+  "polisLegendLack": {
+    "message": "missing resources"
+  },
+  "polisLegendUnknown": {
+    "message": "cost unknown"
+  },
+  "polisStockUnknown": {
+    "message": "This city's resources have not been captured yet. Open the city or use \"Refresh all\"."
+  },
+  "polisBlocked": {
+    "message": "Not available: {building} is being upgraded in this city"
+  },
+  "polisLegendBlocked": {
+    "message": "another upgrade in progress"
+  },
+  "optSectionDiscord": {
+    "message": "Discord"
+  },
+  "optDiscordIntro": {
+    "message": "Send alerts and summaries to your alliance's Discord. Create a webhook in Channel settings > Integrations > Webhooks and paste its URL. Anyone with the URL can post to that channel, so keep it private."
+  },
+  "optAddWebhook": {
+    "message": "Add webhook"
+  },
+  "optWebhookName": {
+    "message": "Name (e.g. #alerts)"
+  },
+  "optWebhookEnabled": {
+    "message": "Active"
+  },
+  "optEvent_attack": {
+    "message": "Incoming attacks"
+  },
+  "optEvent_summary": {
+    "message": "Periodic summary"
+  },
+  "optEvent_manual": {
+    "message": "Manual sends (\"Send to Discord\")"
+  },
+  "optWebhookTest": {
+    "message": "Send test"
+  },
+  "optWebhookSending": {
+    "message": "Sending..."
+  },
+  "optWebhookTestOk": {
+    "message": "Test message sent. Check the channel."
+  },
+  "optWebhookTestFailed": {
+    "message": "Could not send: {reason}"
+  },
+  "optWebhookInvalid": {
+    "message": "That is not a Discord webhook URL."
+  },
+  "optWebhookConfirmDelete": {
+    "message": "Delete the webhook \"{name}\"?"
+  },
+  "optSummaryHours": {
+    "message": "Send the periodic summary every (hours)"
+  },
+  "optMentionOnAttack": {
+    "message": "Mention @here on attack alerts"
+  },
+  "discordAttackTitle": {
+    "message": "Attack alert"
+  },
+  "discordAttackBody": {
+    "message": "The military advisor of {player} ({world}) reports an attack. Check the game now."
+  },
+  "discordSummaryTitle": {
+    "message": "Account summary: {player}"
+  },
+  "discordTotals": {
+    "message": "Total resources"
+  },
+  "discordTestTitle": {
+    "message": "IkaDios connected"
+  },
+  "discordTestBody": {
+    "message": "This channel will receive the messages you enabled."
+  },
+  "sendToDiscord": {
+    "message": "Send to Discord"
+  },
+  "discordSent": {
+    "message": "Sent to Discord"
+  },
+  "discordNoWebhook": {
+    "message": "No webhook with manual sends. Set one up in Settings > Discord."
+  },
+  "discordFailed": {
+    "message": "Could not send to Discord"
+  },
+  "optWebhookFilters": {
+    "message": "Filters: what this channel receives"
+  },
+  "optWebhookTypes": {
+    "message": "Message types"
+  },
+  "optEventGroup_alerts": {
+    "message": "Alerts"
+  },
+  "optEventGroup_summaries": {
+    "message": "Summaries"
+  },
+  "optEventGroup_reports": {
+    "message": "Reports"
+  },
+  "optEventGroup_map": {
+    "message": "Map"
+  },
+  "optEventGroup_trade": {
+    "message": "Trade"
+  },
+  "optEvent_espionageReport": {
+    "message": "Espionage reports"
+  },
+  "optEvent_combatReport": {
+    "message": "Combat reports"
+  },
+  "optEvent_mapLayer": {
+    "message": "War map layers"
+  },
+  "optEvent_tradeListing": {
+    "message": "Trade offers and requests"
+  },
+  "optSoon": {
+    "message": "soon"
+  },
+  "optSoonHint": {
+    "message": "Arrives with a later version; you can assign the channel now."
+  },
+  "optWebhookCities": {
+    "message": "Cities"
+  },
+  "optWebhookCitiesAll": {
+    "message": "(none marked = all cities)"
+  },
+  "optWebhookCitiesSome_one": {
+    "message": "({n} city selected)"
+  },
+  "optWebhookCitiesSome_other": {
+    "message": "({n} cities selected)"
+  },
+  "optWebhookSections": {
+    "message": "Summary content"
+  },
+  "optSection_overview": {
+    "message": "Gold and ships"
+  },
+  "optSection_totals": {
+    "message": "Total resources"
+  },
+  "optSection_cityResources": {
+    "message": "Resources per city"
+  },
+  "optSection_wine": {
+    "message": "Wine left"
+  },
+  "optSection_construction": {
+    "message": "Construction in progress"
+  },
+  "discordUnknownPlayer": {
+    "message": "player (name not captured yet)"
+  },
+  "militaryUnits": {
+    "message": "Troops"
+  },
+  "militaryShips": {
+    "message": "Warships"
+  },
+  "militaryMovements": {
+    "message": "Movements"
+  },
+  "militaryGarrison": {
+    "message": "Total / garrison limit"
+  },
+  "total": {
+    "message": "Total"
+  },
+  "militaryNoUnits": {
+    "message": "No troops in your cities."
+  },
+  "militaryNoShips": {
+    "message": "No warships in your cities."
+  },
+  "researchPoints": {
+    "message": "Research points"
+  },
+  "researchPerHour": {
+    "message": "Points per hour"
+  },
+  "researchScientists": {
+    "message": "Scientists"
+  },
+  "researchBranch": {
+    "message": "Branch"
+  },
+  "researchNext": {
+    "message": "Next research"
+  },
+  "researchCost": {
+    "message": "Cost"
+  },
+  "researchStatus": {
+    "message": "Status"
+  },
+  "researchMaxed": {
+    "message": "Maximum reached"
+  },
+  "researchAvailable": {
+    "message": "Available"
+  },
+  "researchIn": {
+    "message": "in"
+  },
+  "researchCurrent": {
+    "message": "(current branch)"
+  },
+  "researchBranch_seafaring": {
+    "message": "Seafaring"
+  },
+  "researchBranch_economy": {
+    "message": "Economy"
+  },
+  "researchBranch_knowledge": {
+    "message": "Science"
+  },
+  "researchBranch_military": {
+    "message": "Military"
+  },
+  "researchBranch_mythology": {
+    "message": "Mythology"
+  },
+  "polisHappiness": {
+    "message": "Happiness"
+  },
+  "polisActionPoints": {
+    "message": "AP"
+  },
+  "polisActionPointsHint": {
+    "message": "Action points available / maximum"
+  },
+  "polisCorruption": {
+    "message": "Corruption"
+  },
+  "polisGrowth": {
+    "message": "Growth per hour"
+  },
+  "happiness_euphoric": {
+    "message": "Euphoric"
+  },
+  "happiness_happy": {
+    "message": "Happy"
+  },
+  "happiness_neutral": {
+    "message": "Neutral"
+  },
+  "happiness_sad": {
+    "message": "Unhappy"
+  },
+  "happiness_outraged": {
+    "message": "Angry"
+  },
+  "satisfaction_base": {
+    "message": "Base"
+  },
+  "satisfaction_research": {
+    "message": "Research"
+  },
+  "satisfaction_capital": {
+    "message": "Capital"
+  },
+  "satisfaction_tavern": {
+    "message": "Tavern"
+  },
+  "satisfaction_wine": {
+    "message": "Wine served"
+  },
+  "satisfaction_museum": {
+    "message": "Museum"
+  },
+  "satisfaction_treaties": {
+    "message": "Cultural treaties"
+  },
+  "satisfaction_overpopulation": {
+    "message": "Population"
+  },
+  "satisfaction_corruption": {
+    "message": "Corruption"
+  },
+  "satisfaction_government": {
+    "message": "Government"
+  },
+  "financesResult": {
+    "message": "Result"
+  },
+  "optDebugOff": {
+    "message": "Recording is off."
+  },
+  "optDebugExpired": {
+    "message": "Recording finished (time limit reached)."
+  },
+  "optDebugOnUntil": {
+    "message": "Recording; it stops {when}."
+  },
+  "optDebugOnForever": {
+    "message": "Recording with no time limit."
+  },
+  "optDebugDuration": {
+    "message": "Duration"
+  },
+  "optDebugFor": {
+    "message": "{n} minutes"
+  },
+  "optDebugNoLimit": {
+    "message": "No limit"
+  },
+  "optDebugSources": {
+    "message": "Source"
+  },
+  "optDebugSource_tab": {
+    "message": "While I browse the game"
+  },
+  "optDebugSource_refresh": {
+    "message": "\"Refresh all\" and auto refresh"
+  },
+  "optDebugGroups": {
+    "message": "What to record"
+  },
+  "optDebugGroup_advisors": {
+    "message": "Advisors and finances"
+  },
+  "optDebugGroup_buildings": {
+    "message": "Buildings"
+  },
+  "optDebugGroup_background": {
+    "message": "City and header data"
+  },
+  "optDebugGroup_map": {
+    "message": "Map and islands"
+  },
+  "optDebugGroup_reports": {
+    "message": "Reports"
+  },
+  "optDebugGroup_special": {
+    "message": "Special responses (world map, movements)"
+  },
+  "optDebugGroup_other": {
+    "message": "Everything else"
+  },
+  "optDebugViews": {
+    "message": "Only these views (optional)"
+  },
+  "optDebugViewsHint": {
+    "message": "Comma-separated view names. When set, only these are recorded and the groups above are ignored."
+  },
+  "diplomacyUnread": {
+    "message": "New messages"
+  },
+  "diplomacyAgora": {
+    "message": "Agora"
+  },
+  "diplomacyAlliance": {
+    "message": "Alliance"
+  },
+  "diplomacyInbox": {
+    "message": "Inbox / sent"
+  },
+  "diplomacyFrom": {
+    "message": "From"
+  },
+  "diplomacySubject": {
+    "message": "Subject"
+  },
+  "diplomacyDate": {
+    "message": "Date"
+  },
+  "diplomacyNoMessages": {
+    "message": "No messages in the inbox."
+  },
+  "diplomacyPrivacy": {
+    "message": "Only sender, subject and date are kept, plus a short excerpt shown on hover. Messages are never sent to Discord."
+  },
+  "spiesDefending": {
+    "message": "Defending"
+  },
+  "spiesOnMission": {
+    "message": "On missions"
+  },
+  "spiesTraining": {
+    "message": "In training"
+  },
+  "spiesCanTrain": {
+    "message": "Can train"
+  },
+  "tradeAccountStock": {
+    "message": "Resources across the account"
+  },
+  "tradeResource": {
+    "message": "Resource"
+  },
+  "tradeStock": {
+    "message": "In stock"
+  },
+  "tradePerHour": {
+    "message": "Per hour"
+  },
+  "tradeMarket_buy": {
+    "message": "Cheapest {resource} for sale near {city}"
+  },
+  "tradeMarket_sell": {
+    "message": "Best buyers of {resource} near {city}"
+  },
+  "tradeSeller": {
+    "message": "City (player)"
+  },
+  "tradeAmount": {
+    "message": "Amount"
+  },
+  "tradePrice": {
+    "message": "Gold per unit"
+  },
+  "tradeDistance": {
+    "message": "Distance"
+  },
+  "alertTitle_critical": {
+    "message": "IkaDios: urgent"
+  },
+  "alertTitle_warning": {
+    "message": "IkaDios: attention"
+  },
+  "alertTitle_info": {
+    "message": "IkaDios"
+  },
+  "alert_attack": {
+    "message": "Attack under way! Check the military advisor."
+  },
+  "alert_wineLow": {
+    "message": "{city}: wine for {time}"
+  },
+  "alert_storageFull": {
+    "message": "{city}: {resource} warehouse full"
+  },
+  "alert_storageFullSoon": {
+    "message": "{city}: {resource} full in {time}"
+  },
+  "alert_goldLow": {
+    "message": "Gold runs out in {time}"
+  },
+  "alert_unhappy": {
+    "message": "{city}: happiness {value}"
+  },
+  "alert_constructionDone": {
+    "message": "{city}: {building} finished (level {level})"
+  },
+  "alert_researchAvailable": {
+    "message": "Research available: {name}"
+  },
+  "alert_garrisonOver": {
+    "message": "{city}: {total} troops over the garrison limit of {limit}"
+  },
+  "optSectionAlerts": {
+    "message": "Alerts"
+  },
+  "optAlertsIntro": {
+    "message": "Alerts appear in the Summary tab and on the minimized panel badge. Warnings and urgent ones can also show as desktop notifications."
+  },
+  "optAlertsDesktop": {
+    "message": "Desktop notifications from"
+  },
+  "optAlertsMin_critical": {
+    "message": "urgent only"
+  },
+  "optAlertsMin_warning": {
+    "message": "attention and urgent"
+  },
+  "optAlertsMin_info": {
+    "message": "all"
+  },
+  "optAlertsSeverity_critical": {
+    "message": "urgent"
+  },
+  "optAlertsSeverity_warning": {
+    "message": "attention"
+  },
+  "optAlertsSeverity_info": {
+    "message": "info"
+  },
+  "optAlert_attack": {
+    "message": "Incoming attack"
+  },
+  "optAlert_wineLow": {
+    "message": "Wine running out"
+  },
+  "optAlert_storageFull": {
+    "message": "Warehouse full soon"
+  },
+  "optAlert_goldLow": {
+    "message": "Gold running out"
+  },
+  "optAlert_unhappy": {
+    "message": "Unhappy city"
+  },
+  "optAlert_constructionDone": {
+    "message": "Construction finished"
+  },
+  "optAlert_researchAvailable": {
+    "message": "Research available"
+  },
+  "optAlert_garrisonOver": {
+    "message": "Over the garrison limit"
+  },
+  "optAlert_advisor": {
+    "message": "Advisor with news"
+  },
+  "optAlertUnit_wineLow": {
+    "message": "hours of wine or less"
+  },
+  "optAlertUnit_storageFull": {
+    "message": "hours until full or less"
+  },
+  "optAlertUnit_goldLow": {
+    "message": "hours of gold or less"
+  },
+  "optAlertUnit_unhappy": {
+    "message": "happiness below"
+  },
+  "mapLoading": {
+    "message": "Loading the world map..."
+  },
+  "mapError": {
+    "message": "The world map could not be loaded (ika-map.com). Try \"Reload map\"."
+  },
+  "mapEmpty": {
+    "message": "No map data yet."
+  },
+  "mapSource": {
+    "message": "{n} islands from ika-map.com, updated {when}"
+  },
+  "mapReload": {
+    "message": "Reload map"
+  },
+  "mapReloadHint": {
+    "message": "Download the world again from ika-map.com (normally cached for 6 hours)."
+  },
+  "mapZoomIn": {
+    "message": "Zoom in"
+  },
+  "mapZoomOut": {
+    "message": "Zoom out"
+  },
+  "mapGoTo": {
+    "message": "Go to"
+  },
+  "mapSearchPlaceholder": {
+    "message": "Name or tag"
+  },
+  "mapPlayer": {
+    "message": "Player"
+  },
+  "mapAlliance": {
+    "message": "Alliance"
+  },
+  "mapSearchHint": {
+    "message": "Search up to five players or alliances; each one gets its color on the map."
+  },
+  "mapFilter_inactive": {
+    "message": "Mark inactive players"
+  },
+  "mapFilter_vacation": {
+    "message": "Mark vacation mode"
+  },
+  "mapFilter_freeOnly": {
+    "message": "Only islands with free slots"
+  },
+  "mapCoords": {
+    "message": "Coordinates"
+  },
+  "mapLevel": {
+    "message": "Level"
+  },
+  "mapState": {
+    "message": "State"
+  },
+  "mapWonder": {
+    "message": "Wonder"
+  },
+  "mapCities_one": {
+    "message": "{n} city, {free} free slots"
+  },
+  "mapCities_other": {
+    "message": "{n} cities, {free} free slots"
+  },
+  "mapAvgLevel": {
+    "message": "Average city level {level}"
+  },
+  "mapVisited": {
+    "message": "City list from your visit {when}"
+  },
+  "mapLegendOwn": {
+    "message": "Your cities"
+  },
+  "mapLegendAlliance": {
+    "message": "Your alliance"
+  },
+  "mapLegendOccupied": {
+    "message": "Occupied"
+  },
+  "mapLegendEmpty": {
+    "message": "Empty"
+  },
+  "mapLegendMulti": {
+    "message": "Two or more searches"
+  },
+  "mapLegendMoveOwn": {
+    "message": "Your fleets"
+  },
+  "mapLegendMoveHostile": {
+    "message": "Hostile fleets"
+  },
+  "playerState_vacation": {
+    "message": "vacation"
+  },
+  "playerState_inactive": {
+    "message": "inactive"
+  },
+  "playerState_inactivePalm": {
+    "message": "inactive"
+  },
+  "playerState_noob": {
+    "message": "beginner"
+  },
+  "playerState_inactive_banned": {
+    "message": "banned"
+  },
+  "wonder_1": {
+    "message": "Hephaestus' Forge"
+  },
+  "wonder_2": {
+    "message": "Hades' Holy Grove"
+  },
+  "wonder_3": {
+    "message": "Demeter's Gardens"
+  },
+  "wonder_4": {
+    "message": "Athena's Parthenon"
+  },
+  "wonder_5": {
+    "message": "Temple of Hermes"
+  },
+  "wonder_6": {
+    "message": "Ares' Stronghold"
+  },
+  "wonder_7": {
+    "message": "Poseidon's Temple"
+  },
+  "wonder_8": {
+    "message": "Colossus"
+  },
+  "militaryNoMovements": {
+    "message": "No fleet or troop movements."
+  },
+  "militaryMission": {
+    "message": "Mission"
+  },
+  "militaryForces": {
+    "message": "Forces"
+  },
+  "militaryShipsN_one": {
+    "message": "{n} ship"
+  },
+  "militaryShipsN_other": {
+    "message": "{n} ships"
+  },
+  "militaryUnitsN_one": {
+    "message": "{n} unit"
+  },
+  "militaryUnitsN_other": {
+    "message": "{n} units"
+  },
+  "alert_attackDetail": {
+    "message": "{attacker} attacks {city}: arrives in {time}"
+  },
+  "islandsIsland": {
+    "message": "Island"
+  },
+  "islandsLuxury": {
+    "message": "Luxury good"
+  },
+  "islandsCitiesFree": {
+    "message": "Cities / free"
+  },
+  "islandsAlliances": {
+    "message": "Main alliances"
+  },
+  "islandsShowOnMap": {
+    "message": "Show on the map"
+  },
+  "islandsHint": {
+    "message": "Resources, wonder and neighbours come from ika-map.com; islands you open in the game add their name, wonder level and running upgrades."
+  },
+  "layerDefaultName": {
+    "message": "My marks"
+  },
+  "layerPaint": {
+    "message": "Paint"
+  },
+  "layerPaintHint": {
+    "message": "Mark islands on the map with a color and a label"
+  },
+  "layerBrush": {
+    "message": "Brush"
+  },
+  "layerLabelPlaceholder": {
+    "message": "Label (e.g. target)"
+  },
+  "layerExpiresIn": {
+    "message": "expires in {n} h"
+  },
+  "layerNoExpiry": {
+    "message": "no expiry"
+  },
+  "layerPaintHelp": {
+    "message": "Click or drag over islands; click a marked island to erase it."
+  },
+  "layerTitle": {
+    "message": "Map layers"
+  },
+  "layerVisible": {
+    "message": "Show this layer"
+  },
+  "layerMarks_one": {
+    "message": "{n} island"
+  },
+  "layerMarks_other": {
+    "message": "{n} islands"
+  },
+  "layerActive": {
+    "message": "(painting here)"
+  },
+  "layerUse": {
+    "message": "Paint here"
+  },
+  "layerClear": {
+    "message": "Clear"
+  },
+  "layerAdd": {
+    "message": "New layer"
+  },
+  "layerNewPlaceholder": {
+    "message": "New layer name"
+  },
+  "layerImport": {
+    "message": "Import layer"
+  },
+  "layerImportFailed": {
+    "message": "That file is not an IkaDios map layer."
+  },
+  "layerExpires": {
+    "message": "expires {when}"
+  },
+  "layerNoWebhook": {
+    "message": "No webhook receives map layers. Enable \"War map layers\" in Settings > Discord."
+  },
+  "discordLayerTitle": {
+    "message": "Map layer: {name}"
+  },
+  "discordLayerBody": {
+    "message": "Shared by {player}"
+  },
+  "discordLayerNoLabel": {
+    "message": "No label"
+  },
+  "tradeListingTitle": {
+    "message": "Ask or offer resources to the alliance (Discord)"
+  },
+  "tradeListingKindNeed": {
+    "message": "I need"
+  },
+  "tradeListingKindOffer": {
+    "message": "I offer"
+  },
+  "tradeListingIn": {
+    "message": "in"
+  },
+  "tradeListingAddResource": {
+    "message": "+ another resource"
+  },
+  "tradeListingExchangePlaceholder": {
+    "message": "In exchange (optional): e.g. 20.000 marble or 9 gold per unit"
+  },
+  "tradeListingNotePlaceholder": {
+    "message": "Custom message (optional)"
+  },
+  "tradeListingEmpty": {
+    "message": "Enter at least one amount."
+  },
+  "tradeListingNoWebhook": {
+    "message": "No webhook receives trade listings for this city. Enable \"Trade offers and requests\" in Settings > Discord."
+  },
+  "tradeListingTitleNeed": {
+    "message": "{player} needs resources"
+  },
+  "tradeListingTitleOffer": {
+    "message": "{player} offers resources"
+  },
+  "tradeListingNeeds": {
+    "message": "Needs"
+  },
+  "tradeListingOffers": {
+    "message": "Offers"
+  },
+  "tradeListingDeliverTo": {
+    "message": "Deliver to"
+  },
+  "tradeListingFrom": {
+    "message": "From"
+  },
+  "tradeListingExchange": {
+    "message": "In exchange"
+  },
+  "polisAskAlliance": {
+    "message": "Ask the alliance"
+  },
+  "polisAskAllianceHint": {
+    "message": "Opens the Trade tab with the missing resources, ready to send to Discord"
+  },
+  "polisAskAllianceNote": {
+    "message": "For {building} level {level}"
+  },
+  "tradeListingSendField": {
+    "message": "Send to this player"
+  },
+  "tradeListingSendLink": {
+    "message": "Send the resources"
+  },
+  "tradeListingSendHint": {
+    "message": "With IkaDios the game transport window opens with the amounts filled in; without it, the transport window to this city."
+  },
+  "deliveryTitle": {
+    "message": "Pending delivery for {player}"
+  },
+  "deliveryTo": {
+    "message": "Destination: {city}"
+  },
+  "deliveryFrom": {
+    "message": "Send from"
+  },
+  "deliveryAskedStock": {
+    "message": "asked {asked} | in this city {stock}"
+  },
+  "deliveryShips": {
+    "message": "About {n} merchant ships needed ({free} free)"
+  },
+  "deliverySend": {
+    "message": "Send"
+  },
+  "deliveryDiscard": {
+    "message": "Discard"
+  },
+  "deliverySending": {
+    "message": "Opening the transport window..."
+  },
+  "deliverySent": {
+    "message": "Sent to the game. Check the transport in the military advisor."
+  },
+  "deliveryFailed": {
+    "message": "Could not send: {reason}"
+  },
+  "deliveryError_invalid": {
+    "message": "invalid request"
+  },
+  "deliveryError_empty": {
+    "message": "no amounts"
+  },
+  "deliveryError_form": {
+    "message": "the transport window did not open for these cities"
+  },
+  "deliveryError_field": {
+    "message": "resource field not found"
+  },
+  "deliveryError_button": {
+    "message": "send button not found"
+  },
+  "deliveryError_undefined": {
+    "message": "unknown error"
+  },
+  "deliveryHint": {
+    "message": "Check the player and destination before sending: anyone can create a link. The game window opens, IkaDios fills the amounts and presses the game's send button; the game applies its usual checks."
+  },
+  "deliveryShipsShort": {
+    "message": "About {n} merchant ships needed but only {free} are free."
+  },
+  "discordFailedReason": {
+    "message": "Could not send to Discord: {reason}"
+  },
+  "discordNoResponse": {
+    "message": "The extension did not answer. Reload IkaDios in chrome://extensions and this page (F5)."
+  },
+  "deliveryPrefillFailed": {
+    "message": "The game transport window could not be prepared ({reason}). You can send from here."
+  },
+  "researchExperiments": {
+    "message": "Experiments needed"
+  },
+  "researchExperiment": {
+    "message": "One experiment"
+  },
+  "researchExperimentValue": {
+    "message": "{points} points for {glass} crystal"
+  },
+  "researchGlassStock": {
+    "message": "Crystal in all cities"
+  },
+  "researchExpGlass": {
+    "message": "({glass} crystal)"
+  },
+  "researchExpTime": {
+    "message": "min. {time}"
+  },
+  "researchExpHint": {
+    "message": "Experiments are done in an academy; after each one the scientists need {hours} h before the next. Red: not enough crystal in your cities."
+  },
+  "researchExpPending": {
+    "message": "Open an academy (or use \"Refresh all\") so IkaDios can read the experiment cost."
+  },
+  "deliveryModePanel": {
+    "message": "Deliver from the Trade panel when opening a delivery link"
+  },
+  "deliveryModeHint": {
+    "message": "Checked: links from Discord open the pending delivery panel here. Unchecked: they open the game transport window with the amounts filled in."
+  },
+  "deliveryError_sameCity": {
+    "message": "the city selected in the game is the destination; select another of your cities"
+  },
+  "deliveryError_cityChange": {
+    "message": "could not switch to the origin city in the game"
+  },
+  "deliveryProblemOrigin": {
+    "message": "Choose the city to send from."
+  },
+  "deliveryProblemStock": {
+    "message": "{resource}: {amount} requested but the city only has {stock}."
+  },
+  "deliveryError_noAnswer": {
+    "message": "the game did not confirm the transport (it may have stopped it in its own window)"
+  },
+  "deliveryError_game": {
+    "message": "the game rejected it"
+  },
+  "polisUpgradeDone": {
+    "message": "Upgrade started. {message}"
+  },
+  "polisUpgradeRejected": {
+    "message": "The game rejected the upgrade: {message}"
+  },
+  "polisActionError_unavailable": {
+    "message": "The action could not be sent. Reload the page (F5) and try again."
+  },
+  "polisActionError_cityChange": {
+    "message": "Could not switch to that city in the game."
+  },
+  "polisActionError_noAnswer": {
+    "message": "The game did not answer the upgrade request."
+  },
+  "shareWhatsApp": {
+    "message": "Share on WhatsApp"
+  },
+  "shareWhatsAppHint": {
+    "message": "Opens WhatsApp with the same message (and the delivery link); choose your alliance group and send."
+  },
+  "shareWhatsAppOpened": {
+    "message": "WhatsApp opened: choose the group and send."
+  },
+  "mapOpenHint": {
+    "message": "Double click an island to open it in the game."
+  },
+  "mapShare": {
+    "message": "Share map"
+  },
+  "mapShareNoLayers": {
+    "message": "No visible layers with marks: only the image is shared."
+  },
+  "mapShareTitle": {
+    "message": "Map shared by {player}"
+  },
+  "mapShareImportLink": {
+    "message": "Open and import the layers in IkaDios"
+  },
+  "mapShareFileNote": {
+    "message": "The layers are too many for a link: import the attached file from the Map tab (\"Import layer\")."
+  },
+  "mapShareWhatsAppOpened": {
+    "message": "WhatsApp opened with the link. WhatsApp cannot attach the image from a link: use \"Copy image\" and paste it in the chat."
+  },
+  "mapShareCopyImage": {
+    "message": "Copy image"
+  },
+  "mapShareDownload": {
+    "message": "Download image"
+  },
+  "mapShareCopied": {
+    "message": "Image copied: paste it with Ctrl+V."
+  },
+  "mapImport": {
+    "message": "Import"
+  },
+  "mapImportHint": {
+    "message": "They are added as new layers; your own layers are not changed."
+  },
+  "mapImportTitle_one": {
+    "message": "{player} shared {n} map layer ({islands} islands). Import it?"
+  },
+  "mapImportTitle_other": {
+    "message": "{player} shared {n} map layers ({islands} islands). Import them?"
+  },
+  "mapShareWhat_one": {
+    "message": "Shares the map image as you see it and a link with the {n} visible layer ({islands} islands)."
+  },
+  "mapShareWhat_other": {
+    "message": "Shares the map image as you see it and a link with the {n} visible layers ({islands} islands)."
+  },
+  "discordAttackField": {
+    "message": "{city}, attacked by {attacker} ({from})"
+  },
+  "arrivalIn": {
+    "message": "in {time}"
+  },
+  "shareNothingSelected": {
+    "message": "Select at least one row."
+  },
+  "shareSelectedRows": {
+    "message": "Share the selected rows"
+  },
+  "shareMilitaryTitle": {
+    "message": "Military report of {player}"
+  },
+  "shareTransportTitle": {
+    "message": "Transports of {player}"
+  },
+  "shareMoveName": {
+    "message": "{mission}: {from} to {to}"
+  },
+  "shareHostile": {
+    "message": "HOSTILE"
+  },
+  "layerFromText": {
+    "message": "Create layer from text"
+  },
+  "layerFromTextPlaceholder": {
+    "message": "Paste coordinates, e.g.\ntarget: [47:20], [48:17]\ndo not touch: [50:21]"
+  },
+  "layerFromTextFound_one": {
+    "message": "{n} island detected"
+  },
+  "layerFromTextFound_other": {
+    "message": "{n} islands detected"
+  },
+  "layerFromTextCreate": {
+    "message": "Create layer"
+  },
+  "layerFromTextCreated_one": {
+    "message": "Layer created with {n} island."
+  },
+  "layerFromTextCreated_other": {
+    "message": "Layer created with {n} islands."
+  },
+  "layerFromTextHint": {
+    "message": "A line that starts with \"label:\" uses that label for its islands. Expiry comes from the paint brush."
+  },
+  "discordLayerPasteHint": {
+    "message": "Too many islands for a link: copy this message and use \"Create layer from text\" in the IkaDios map."
+  },
+  "polisDragHint": {
+    "message": "Drag to move this column"
+  },
+  "polisResetOrder": {
+    "message": "Reset column order"
+  },
+  "autoWarning": {
+    "message": "Automations go against Ikariam's rules and can get the account banned. Everything is off until you enable it; you take the risk."
+  },
+  "autoEnabled": {
+    "message": "Automations on"
+  },
+  "autoStopAll": {
+    "message": "Stop everything"
+  },
+  "autoQuiet": {
+    "message": "Quiet hours"
+  },
+  "autoQuietFrom": {
+    "message": "from"
+  },
+  "autoQuietTo": {
+    "message": "to"
+  },
+  "autoRate": {
+    "message": "Actions in the last hour: {n} / {max}"
+  },
+  "autoStateOff": {
+    "message": "Off."
+  },
+  "autoStateQuiet": {
+    "message": "Quiet hours until {to}."
+  },
+  "autoStateIdle": {
+    "message": "On, no pending tasks."
+  },
+  "autoStateNext": {
+    "message": "Next check: {when}"
+  },
+  "autoStateOn": {
+    "message": "On."
+  },
+  "autoStopped_session": {
+    "message": "Stopped: the game session expired. Log in again and turn automations back on."
+  },
+  "autoStopped_captcha": {
+    "message": "Stopped: the game asked for a security code. Solve it in the game and turn automations back on."
+  },
+  "autoBuildQueue": {
+    "message": "Construction queue"
+  },
+  "autoBuildHint": {
+    "message": "Each city works through its active tasks in order. A task waits until the city has the resources and no other construction, then upgrades one level at a time up to the target level. Inactive tasks are skipped. Every task is checked at least once per interval; Run now checks it right away."
+  },
+  "autoNoCities": {
+    "message": "No city buildings known yet. Open your cities in the game or use Refresh all."
+  },
+  "autoBuildingOption": {
+    "message": "{building} (level {level})"
+  },
+  "autoBuilding": {
+    "message": "Building"
+  },
+  "autoTargetLevel": {
+    "message": "Up to level"
+  },
+  "autoAdd": {
+    "message": "Add"
+  },
+  "autoAdded": {
+    "message": "Task added."
+  },
+  "autoAddError_duplicate": {
+    "message": "That building already has a task."
+  },
+  "autoAddError_invalid": {
+    "message": "Check the target level."
+  },
+  "autoAddError_other": {
+    "message": "Could not add the task."
+  },
+  "autoNoTasks": {
+    "message": "No tasks."
+  },
+  "autoLevels": {
+    "message": "Levels"
+  },
+  "autoStatus": {
+    "message": "Status"
+  },
+  "autoLevelRange": {
+    "message": "{from} to {to}"
+  },
+  "autoUp": {
+    "message": "Up"
+  },
+  "autoDown": {
+    "message": "Down"
+  },
+  "autoRetry": {
+    "message": "Retry"
+  },
+  "autoRemove": {
+    "message": "Remove"
+  },
+  "autoClearDone": {
+    "message": "Remove finished tasks"
+  },
+  "autoLog": {
+    "message": "Log"
+  },
+  "autoLogEmpty": {
+    "message": "Nothing logged yet."
+  },
+  "autoClearLog": {
+    "message": "Clear log"
+  },
+  "autoKind_ok": {
+    "message": "Done"
+  },
+  "autoKind_simulate": {
+    "message": "Simulation"
+  },
+  "autoKind_error": {
+    "message": "Error"
+  },
+  "autoKind_stop": {
+    "message": "Stop"
+  },
+  "autoKind_info": {
+    "message": "Info"
+  },
+  "autoStatus_done": {
+    "message": "Finished"
+  },
+  "autoStatus_error": {
+    "message": "Error:"
+  },
+  "autoStatus_new": {
+    "message": "Waiting for the first check"
+  },
+  "autoMsg_busy": {
+    "message": "Another construction in progress, checking again at {when}"
+  },
+  "autoMsg_missing": {
+    "message": "Missing {list}, checking again at {when}"
+  },
+  "autoMsg_upgradeSent": {
+    "message": "Upgrade from level {level} to {next} started"
+  },
+  "autoMsg_done": {
+    "message": "Target level reached"
+  },
+  "autoMsg_noBuilding": {
+    "message": "The building is no longer there"
+  },
+  "autoMsg_buildingChanged": {
+    "message": "There is another building in that position"
+  },
+  "autoMsg_costUnknown": {
+    "message": "Could not read the upgrade cost"
+  },
+  "autoMsg_gameError": {
+    "message": "The game rejected the upgrade"
+  },
+  "autoMsg_requestFailed": {
+    "message": "The game did not answer"
+  },
+  "autoLog_simulated": {
+    "message": "{building} in {city}: would upgrade from level {level} to {next}"
+  },
+  "autoLog_upgradeSent": {
+    "message": "{building} in {city}: upgrade from level {level} to {next} started"
+  },
+  "autoLog_gameError": {
+    "message": "{building} in {city}: the game rejected the upgrade"
+  },
+  "autoLog_requestFailed": {
+    "message": "{building} in {city}: the game did not answer"
+  },
+  "autoLog_done": {
+    "message": "{building} in {city}: level {to} reached"
+  },
+  "autoLog_noBuilding": {
+    "message": "{building} in {city}: the building is no longer there"
+  },
+  "autoLog_buildingChanged": {
+    "message": "{building} in {city}: there is another building in that position"
+  },
+  "autoLog_stopped_session": {
+    "message": "Stopped: the game session expired"
+  },
+  "autoLog_stopped_captcha": {
+    "message": "Stopped: the game asked for a security code"
+  },
+  "autoLog_stoppedByUser": {
+    "message": "Stopped by the user"
+  },
+  "autoLog_enabled": {
+    "message": "Automations turned on"
+  },
+  "autoLog_disabled": {
+    "message": "Automations turned off"
+  },
+  "autoLog_taskAdded": {
+    "message": "Task added: {building} in {city}, level {from} to {to}"
+  },
+  "autoNotifyTitle": {
+    "message": "IkaDios automations"
+  },
+  "autoNotifyUpgrade": {
+    "message": "{city}: {building} upgrading to level {level}"
+  },
+  "loading": {
+    "message": "Loading..."
+  },
+  "polisAutomate": {
+    "message": "Automate"
+  },
+  "polisAutoSave": {
+    "message": "Save"
+  },
+  "polisAutoRemove": {
+    "message": "Remove automation"
+  },
+  "polisAutoRemoved": {
+    "message": "Automation removed."
+  },
+  "polisAutoExisting": {
+    "message": "Already automated up to level {level}."
+  },
+  "autoLog_taskChanged": {
+    "message": "Task changed: {building} in {city}, up to level {to}"
+  },
+  "autoRunNow": {
+    "message": "Run now"
+  },
+  "autoRunning": {
+    "message": "Checking with the game..."
+  },
+  "autoMsg_rateLimit": {
+    "message": "Limit of 20 actions per hour reached, waiting until {when}"
+  },
+  "autoLog_runNow": {
+    "message": "{building} in {city}: run by hand"
+  },
+  "autoRunNowError_busy": {
+    "message": "Another check is running, try again in a moment."
+  },
+  "autoRunNowError_refreshing": {
+    "message": "Refresh all is running, try again when it finishes."
+  },
+  "autoRunNowError_session": {
+    "message": "The game session expired. Log in again."
+  },
+  "autoRunNowError_captcha": {
+    "message": "The game asked for a security code. Solve it in the game."
+  },
+  "autoRunNowError_other": {
+    "message": "Could not run the task."
+  },
+  "autoActive": {
+    "message": "Active"
+  },
+  "autoActiveHint": {
+    "message": "Unchecked: the task is kept but does nothing until you activate it"
+  },
+  "autoActiveColumn": {
+    "message": "Active"
+  },
+  "autoActiveYes": {
+    "message": "Yes"
+  },
+  "autoInactive": {
+    "message": "No"
+  },
+  "autoStatus_inactive": {
+    "message": "Inactive"
+  },
+  "autoActivate": {
+    "message": "Activate"
+  },
+  "autoDeactivate": {
+    "message": "Deactivate"
+  },
+  "autoCheckEvery": {
+    "message": "Check every"
+  },
+  "autoMinutes": {
+    "message": "min"
+  },
+  "autoCheckHint": {
+    "message": "Between {min} and {max} minutes. Each check that reads the game makes 2 to 4 requests."
+  },
+  "polisAutoActive": {
+    "message": "Activate automation"
+  },
+  "polisAutoActiveHint": {
+    "message": "Checked: upgrades when the resources are there, and switches automations on. Unchecked: the task is kept but inactive."
+  },
+  "polisAutoSavedActive": {
+    "message": "Saved. It will upgrade when the resources are there."
+  },
+  "polisAutoSavedInactive": {
+    "message": "Saved as inactive: it does nothing until you activate it."
+  },
+  "autoTransports": {
+    "message": "Transports"
+  },
+  "autoTransportHint": {
+    "message": "Ships from the origin city to another of your cities. Fixed amount: sends exactly that, once or every N hours, when the origin has it all. Fill: keeps the destination at least at those amounts, counting cargo already on the way, and sends what the origin and the free ships allow."
+  },
+  "autoTransportMode": {
+    "message": "Type"
+  },
+  "autoTransportMode_fixed": {
+    "message": "Fixed amount"
+  },
+  "autoTransportMode_fill": {
+    "message": "Fill destination up to"
+  },
+  "autoTransportModeHint_fixed": {
+    "message": "Sends these amounts."
+  },
+  "autoTransportModeHint_fill": {
+    "message": "Amounts the destination should have."
+  },
+  "autoRepeat": {
+    "message": "Repeat every"
+  },
+  "autoHours": {
+    "message": "h"
+  },
+  "autoRepeatHint": {
+    "message": "0 = only once"
+  },
+  "autoRepeatOnce": {
+    "message": "Once"
+  },
+  "autoRepeatEvery": {
+    "message": "Every {hours} h"
+  },
+  "autoRepeatInterval": {
+    "message": "Each check"
+  },
+  "autoNoTransports": {
+    "message": "No transports."
+  },
+  "autoTransportSameCity": {
+    "message": "Origin and destination must be different."
+  },
+  "autoTransportEmpty": {
+    "message": "Enter at least one amount."
+  },
+  "autoMsg_missingOrigin": {
+    "message": "The origin has nothing to send, checking again at {when}"
+  },
+  "autoMsg_noShips": {
+    "message": "No free merchant ships, checking again at {when}"
+  },
+  "autoMsg_satisfied": {
+    "message": "The destination already has enough, checking again at {when}"
+  },
+  "autoMsg_transportSent": {
+    "message": "Sent {cargo} ({ships} ships)"
+  },
+  "autoMsg_dataUnknown": {
+    "message": "Could not read the city data"
+  },
+  "autoMsg_formMissing": {
+    "message": "Could not read the transport window"
+  },
+  "autoMsg_noCity": {
+    "message": "One of the cities is no longer yours"
+  },
+  "autoLog_transportSent": {
+    "message": "Transport {from} to {to}: {cargo} ({ships} ships)"
+  },
+  "autoLog_transportError": {
+    "message": "Transport {from} to {to}: the game rejected it"
+  },
+  "autoLog_transportAdded": {
+    "message": "Transport added: {from} to {to}, {cargo}"
+  },
+  "autoLog_noCity": {
+    "message": "Transport {from} to {to}: one of the cities is no longer yours"
+  },
+  "autoNotifyTransport": {
+    "message": "Transport {from} to {to} sent ({ships} ships)"
+  },
+  "autoStartAt": {
+    "message": "Send on"
+  },
+  "autoStartHint": {
+    "message": "Empty: as soon as possible. Repeats count from the first send. If the time falls in the quiet hours, it is sent when they end."
+  },
+  "autoStart": {
+    "message": "Start"
+  },
+  "autoStartNow": {
+    "message": "As soon as possible"
+  },
+  "autoMsg_scheduled": {
+    "message": "Scheduled for {when}"
+  },
+  "autoStartPast": {
+    "message": "That date and time have already passed."
+  },
+  "spyReports": {
+    "message": "Spy reports"
+  },
+  "spyReportsHint": {
+    "message": "Open the hideout's Reports or Archive tab in the game and IkaDios reads them."
+  },
+  "spyOpenReports": {
+    "message": "Open reports"
+  },
+  "spyOpenArchive": {
+    "message": "Open archive"
+  },
+  "spyNoReports": {
+    "message": "No spy reports read yet."
+  },
+  "spyShareTitle": {
+    "message": "Spy reports of {player}"
+  },
+  "spyOwner": {
+    "message": "Owner"
+  },
+  "spyTarget": {
+    "message": "Target"
+  },
+  "spyMission": {
+    "message": "Mission"
+  },
+  "spyResult": {
+    "message": "Result"
+  },
+  "spyAgents": {
+    "message": "Spies lost"
+  },
+  "spyAgentsHint": {
+    "message": "Spies lost / sent"
+  },
+  "spyReportShow": {
+    "message": "Show report"
+  },
+  "spyReportHide": {
+    "message": "Hide report"
+  },
+  "spyReportCities": {
+    "message": "Cities in the report:"
+  },
+  "date": {
+    "message": "Date"
+  },
+  "refreshTab": {
+    "message": "Refresh tab"
+  },
+  "refreshTabHint": {
+    "message": "Loads again only the game views behind \"{tab}\", in the background with random pauses"
+  },
+  "stepSpyReports": {
+    "message": "spy reports"
+  },
+  "battles": {
+    "message": "Battles"
+  },
+  "battlesNone": {
+    "message": "No battles known. Open the war reports in the game or use Refresh tab."
+  },
+  "battleStatus": {
+    "message": "Status"
+  },
+  "battleKind": {
+    "message": "Type"
+  },
+  "battlePlace": {
+    "message": "Place"
+  },
+  "battleOwner": {
+    "message": "Owner"
+  },
+  "battleRounds": {
+    "message": "Rounds"
+  },
+  "battleLastRound": {
+    "message": "Last round"
+  },
+  "battle_ongoing": {
+    "message": "In progress"
+  },
+  "battle_won": {
+    "message": "Won"
+  },
+  "battle_lost": {
+    "message": "Lost"
+  },
+  "battle_unknown": {
+    "message": "Finished"
+  },
+  "battleNoReport": {
+    "message": "(the game did not return the report text)"
+  },
+  "battlesShareTitle": {
+    "message": "Battles of {player}"
+  },
+  "shareSelectedBattles": {
+    "message": "Share selected battles"
+  },
+  "battlesHint": {
+    "message": "Battles in progress come from your movements in combat; finished ones from the war reports."
+  },
+  "openWarReports": {
+    "message": "Open war reports"
+  },
+  "sharePreparing": {
+    "message": "Preparing..."
+  },
+  "view_militaryAdvisorCombatList": {
+    "message": "War reports"
+  },
+  "battleAttacker": {
+    "message": "Attacker"
+  },
+  "battleDefender": {
+    "message": "Defender"
+  },
+  "battleNoUnits": {
+    "message": "No units"
+  },
+  "battleTotals": {
+    "message": "Units: {units}"
+  },
+  "battleTotalLost": {
+    "message": "lost: {n}"
+  },
+  "battleReport": {
+    "message": "Battle report"
+  },
+  "battleImport": {
+    "message": "Import report"
+  },
+  "battleImportPlaceholder": {
+    "message": "Paste the report here"
+  },
+  "battleImportHint": {
+    "message": "Paste a report copied from the game's battle report converter (plain text or BBCode), yours or one shared by another player, or one or more IkaDios battle links (they include the rounds)."
+  },
+  "battleImportShow": {
+    "message": "Show"
+  },
+  "battleImportInvalid": {
+    "message": "That does not look like a battle report from the game's converter."
+  },
+  "battleView": {
+    "message": "View report"
+  },
+  "battleClose": {
+    "message": "Close report"
+  },
+  "battleVs": {
+    "message": "vs"
+  },
+  "battleSummary": {
+    "message": "Summary"
+  },
+  "battleRound": {
+    "message": "Round"
+  },
+  "battleRoundOf": {
+    "message": "Round {n} / {of}"
+  },
+  "battleRoundPrev": {
+    "message": "Previous round"
+  },
+  "battleRoundNext": {
+    "message": "Next round"
+  },
+  "battleLoadRounds": {
+    "message": "Show rounds"
+  },
+  "battleRoundsLoading": {
+    "message": "Reading rounds..."
+  },
+  "battleRoundsNone": {
+    "message": "The game did not return the rounds of this battle."
+  },
+  "battleRoundsCount_one": {
+    "message": "{n} round"
+  },
+  "battleRoundsCount_other": {
+    "message": "{n} rounds"
+  },
+  "battleHitpoints": {
+    "message": "Hit points: {n} %"
+  },
+  "battleAmmo": {
+    "message": "Ammunition: {n} %"
+  },
+  "battleMorale": {
+    "message": "Morale"
+  },
+  "battleReserve": {
+    "message": "Reserve"
+  },
+  "battleSideGone": {
+    "message": "No troops left on the field."
+  },
+  "battleLine_main": {
+    "message": "Front line"
+  },
+  "battleLine_flankLeft": {
+    "message": "Left flank"
+  },
+  "battleLine_flankRight": {
+    "message": "Right flank"
+  },
+  "battleLine_longRange": {
+    "message": "Long-range"
+  },
+  "battleLine_artillery": {
+    "message": "Artillery"
+  },
+  "battleLine_air": {
+    "message": "Bombers"
+  },
+  "battleLine_airfighter": {
+    "message": "Air defence"
+  },
+  "intelOpenBattleRounds": {
+    "message": "Open in IkaDios (rounds {from}-{to})"
+  },
+  "intelBattleRounds": {
+    "message": "with rounds {from} to {to}"
+  },
+  "mapAttackIn": {
+    "message": "Attack in {time}"
+  },
+  "mapShipLoadingShort": {
+    "message": "loading"
+  },
+  "mapShipLoading": {
+    "message": "Loading until {when}"
+  },
+  "mapShipAtTarget": {
+    "message": "At the destination"
+  },
+  "mapShipArrives": {
+    "message": "Arrives {when} (in {left})"
+  },
+  "mapShipRoute": {
+    "message": "From {from} to {to}"
+  },
+  "mapShipExact": {
+    "message": "Exact position (departure seen by IkaDios)"
+  },
+  "mapShipEstimated": {
+    "message": "Estimated position (standard travel time; departure not seen)"
+  },
+  "mapTimeLabel": {
+    "message": "Movements at:"
+  },
+  "mapTimeNow": {
+    "message": "Now"
+  },
+  "mapTimeNowLabel": {
+    "message": "now"
+  },
+  "mapTimeAhead": {
+    "message": "in {time} ({when})"
+  },
+  "mapLegendShipMarker": {
+    "message": "Ship marker with a dark border: exact position; white border: estimated."
+  },
+  "tab_players": {
+    "message": "Players"
+  },
+  "playerSearch": {
+    "message": "Player:"
+  },
+  "playerSearchPlaceholder": {
+    "message": "Name (suggestions from the world map)"
+  },
+  "playerSearchHint": {
+    "message": "Type a player's name to see their cities, levels, distance from your cities, your spy reports and battles about them, and your notes."
+  },
+  "playerCities": {
+    "message": "Cities"
+  },
+  "playerTotalLevel": {
+    "message": "Total level"
+  },
+  "playerAvgLevel": {
+    "message": "Average level"
+  },
+  "playerMaxLevel": {
+    "message": "Highest level"
+  },
+  "playerNoCities": {
+    "message": "No cities for this player in the world data (ika-map.com, updated every few hours)."
+  },
+  "playerIslandRes": {
+    "message": "Island"
+  },
+  "playerNearest": {
+    "message": "Your nearest city (distance)"
+  },
+  "playerTravel": {
+    "message": "Travel"
+  },
+  "playerTravelHint": {
+    "message": "Standard travel time for merchant ships, from your nearest city"
+  },
+  "playerNoSpyReports": {
+    "message": "No spy reports on this player."
+  },
+  "playerNoBattles": {
+    "message": "No battles against this player."
+  },
+  "playerNote": {
+    "message": "Your note"
+  },
+  "playerTag": {
+    "message": "Relation"
+  },
+  "playerTagNone": {
+    "message": "(none)"
+  },
+  "playerTag_ally": {
+    "message": "Ally"
+  },
+  "playerTag_friend": {
+    "message": "Friend"
+  },
+  "playerTag_neutral": {
+    "message": "Neutral"
+  },
+  "playerTag_target": {
+    "message": "Target"
+  },
+  "playerTag_enemy": {
+    "message": "Enemy"
+  },
+  "playerTag_noTouch": {
+    "message": "Do not touch"
+  },
+  "playerNotePlaceholder": {
+    "message": "Private note (only on this computer)"
+  },
+  "playerNoteSaved": {
+    "message": "Saved."
+  },
+  "playerShareTitle": {
+    "message": "Player profile: {player}"
+  },
+  "playerShowOnMap": {
+    "message": "Show on the map"
+  },
+  "playerShare": {
+    "message": "Share profile"
+  },
+  "playerNoted": {
+    "message": "With notes:"
+  },
+  "playerOpen": {
+    "message": "Open player profile"
+  },
+  "intelBattle": {
+    "message": "Battle report: {title}"
+  },
+  "intelSpy": {
+    "message": "Spy report: {subject} ({owner})"
+  },
+  "intelPlayer": {
+    "message": "Note about {name}: {tag}. {note}"
+  },
+  "intelPlan": {
+    "message": "Attack plan \"{title}\" on [{x}:{y}], arrival {when}"
+  },
+  "intelFrom": {
+    "message": "{player} shared with you:"
+  },
+  "intelImported": {
+    "message": "Imported."
+  },
+  "intelAlready": {
+    "message": "You already had it."
+  },
+  "intelHint": {
+    "message": "Nothing is imported without confirming. What others share never replaces your own data."
+  },
+  "intelOpenBattle": {
+    "message": "Open in IkaDios"
+  },
+  "intelOpenSpy": {
+    "message": "Open in IkaDios: {subject}"
+  },
+  "intelOpenPlayer": {
+    "message": "Import profile into IkaDios"
+  },
+  "intelSharedBy": {
+    "message": "from {player}"
+  },
+  "plans": {
+    "message": "Attack plans"
+  },
+  "planShareTitle": {
+    "message": "Attack plan: {title}"
+  },
+  "planTarget": {
+    "message": "Target"
+  },
+  "planArrival": {
+    "message": "Arrival"
+  },
+  "planNote": {
+    "message": "Note"
+  },
+  "planOpenLink": {
+    "message": "Open the plan in IkaDios (works out your departure times)"
+  },
+  "planHide": {
+    "message": "Hide departures"
+  },
+  "planShow": {
+    "message": "Show departures"
+  },
+  "planUntitled": {
+    "message": "Untitled plan"
+  },
+  "planBy": {
+    "message": "by {player}"
+  },
+  "planDistance": {
+    "message": "Distance"
+  },
+  "planTravel": {
+    "message": "Travel"
+  },
+  "planLeave": {
+    "message": "Leave at"
+  },
+  "planTooLate": {
+    "message": "Too late"
+  },
+  "planLeaveIn": {
+    "message": "leave in"
+  },
+  "planShare": {
+    "message": "Share plan"
+  },
+  "planTitlePlaceholder": {
+    "message": "E.g. Attack on Sparta"
+  },
+  "planNew": {
+    "message": "New plan"
+  },
+  "planTitle": {
+    "message": "Name"
+  },
+  "planCreate": {
+    "message": "Create plan"
+  },
+  "planBadCoords": {
+    "message": "Invalid coordinates (for example 50:22)."
+  },
+  "planSpeed": {
+    "message": "Speed:"
+  },
+  "planSpeedUnit": {
+    "message": "min per map unit"
+  },
+  "planSpeedHint": {
+    "message": "Travel minutes per distance unit. 20 is the standard for merchant ships; adjust it to your troops or warships."
+  },
+  "planNone": {
+    "message": "No plans. Create one or open the link of a shared plan."
+  },
+  "planAttack": {
+    "message": "Plan attack"
+  },
+  "playerSharedNotes": {
+    "message": "Notes shared by the alliance"
+  },
+  "shareAlliance": {
+    "message": "Send to the alliance"
+  },
+  "shareAllianceHint": {
+    "message": "Posts to the alliance bot channel; the other members' IkaDios import it by themselves"
+  },
+  "shareAllianceSent": {
+    "message": "Sent to the alliance channel."
+  },
+  "optSectionAlliance": {
+    "message": "Alliance bot"
+  },
+  "optAllianceIntro": {
+    "message": "Optional. With a Discord bot of your alliance, IkaDios posts to a private channel and reads what the other members post: reports, player notes, attack plans and map layers are imported by themselves. Ask your leader for the bot token and the channel ID."
+  },
+  "optAllianceEnabled": {
+    "message": "Use the alliance bot"
+  },
+  "optAllianceToken": {
+    "message": "Bot token"
+  },
+  "optAllianceTokenStored": {
+    "message": "(stored; type a new one to change it)"
+  },
+  "optAllianceChannel": {
+    "message": "Channel ID"
+  },
+  "optAlliancePoll": {
+    "message": "Read the channel every (minutes)"
+  },
+  "optAllianceAutoSpy": {
+    "message": "Post my new spy reports"
+  },
+  "optAllianceAutoPlans": {
+    "message": "Post the attack plans I create"
+  },
+  "optAllianceAutoNotes": {
+    "message": "Post my player notes when I save them"
+  },
+  "optAllianceTest": {
+    "message": "Test connection"
+  },
+  "optAlliancePollNow": {
+    "message": "Read now"
+  },
+  "optAllianceSecurity": {
+    "message": "The token is stored on this computer and only sent to Discord. Anyone with the token can read and write in the channel as the bot: share it only with trusted members. If it leaks, the leader regenerates it in the Discord portal."
+  },
+  "optAllianceLastPoll": {
+    "message": "Last read {when}. Imported: {counts}. {error}"
+  },
+  "optAllianceIncomplete": {
+    "message": "The token or the channel ID is missing, or the bot is off."
+  },
+  "optAllianceBadToken": {
+    "message": "Discord rejected the token (401). Check that it is the bot token."
+  },
+  "optAllianceNoAccess": {
+    "message": "The bot cannot see that channel (403). Check that the bot is in the server and has View Channel and Read Message History in that channel."
+  },
+  "optAllianceMissingPermissions": {
+    "message": "The bot sees the channel but lacks permissions (403). Give it Send Messages, Embed Links and Attach Files in that channel."
+  },
+  "optAllianceBlocked": {
+    "message": "Discord blocked the request (403, code 40333). Update IkaDios and reload it in the extensions page; if it persists, try without VPN or proxy."
+  },
+  "optAllianceNoChannel": {
+    "message": "That channel does not exist or the ID is not valid."
+  },
+  "optAllianceOk": {
+    "message": "Connected to channel #{channel}."
+  },
+  "optAlliancePolled": {
+    "message": "Channel read: {n} new messages."
+  },
+  "allianceKind_battle": {
+    "message": "battles"
+  },
+  "allianceKind_spy": {
+    "message": "spy reports"
+  },
+  "allianceKind_player": {
+    "message": "notes"
+  },
+  "allianceKind_plan": {
+    "message": "plans"
+  },
+  "allianceKind_map": {
+    "message": "layers"
+  },
+  "alliancePlanTitle": {
+    "message": "Attack plan by {player}"
+  },
+  "alliancePlanMessage": {
+    "message": "Target [{x}:{y}], arrival {when}. Open it in Military to see your departure times."
+  },
+  "tab_alliance": {
+    "message": "Alliance"
+  },
+  "allianceIntro": {
+    "message": "What the alliance shares through IkaDios: each member's status, resource requests (with \"I will send it\" so nothing is sent twice) and attack plans."
+  },
+  "allianceNoBot": {
+    "message": "The alliance bot is not set up. Requests and plans arriving by links show up anyway, but \"I will send it\", confirmations and member status need the bot."
+  },
+  "allianceOpenOptions": {
+    "message": "Set up the bot"
+  },
+  "allianceLastRead": {
+    "message": "Channel read {when}."
+  },
+  "allianceNotReadYet": {
+    "message": "The channel has not been read yet."
+  },
+  "alliancePublishStatus": {
+    "message": "Post my status"
+  },
+  "alliancePublishStatusHint": {
+    "message": "Posts your free merchant ships, troops, warships, incoming attacks and gold to the channel (replaces your previous status)"
+  },
+  "allianceMembers": {
+    "message": "Members"
+  },
+  "allianceNoMembers": {
+    "message": "No member has posted a status yet (\"Post my status\" in the bot options)."
+  },
+  "allianceMember": {
+    "message": "Member"
+  },
+  "allianceFreeShips": {
+    "message": "Free merchant ships"
+  },
+  "allianceUnits": {
+    "message": "Troops"
+  },
+  "allianceWarships": {
+    "message": "Warships"
+  },
+  "allianceHostile": {
+    "message": "Incoming attacks"
+  },
+  "allianceGold": {
+    "message": "Gold"
+  },
+  "allianceUpdated": {
+    "message": "Updated"
+  },
+  "allianceRequests": {
+    "message": "Resource requests"
+  },
+  "allianceNoRequests": {
+    "message": "No requests. Trade requests sent to Discord or to the bot show up here."
+  },
+  "allianceRequester": {
+    "message": "Asks"
+  },
+  "allianceWho": {
+    "message": "Who sends it"
+  },
+  "allianceTakenBy": {
+    "message": "Sending: {players}"
+  },
+  "allianceNobody": {
+    "message": "Nobody yet"
+  },
+  "allianceRequestDone": {
+    "message": "Received"
+  },
+  "allianceClaim": {
+    "message": "I will send it"
+  },
+  "allianceUnclaim": {
+    "message": "I will not send it"
+  },
+  "allianceDeliver": {
+    "message": "Deliver"
+  },
+  "allianceMarkDone": {
+    "message": "Received, close"
+  },
+  "allianceClaimNeedsBot": {
+    "message": "\"I will send it\" needs the alliance bot; you can deliver without it."
+  },
+  "allianceClaimTitle_claim": {
+    "message": "Takes care of {player}'s request: {items}"
+  },
+  "allianceClaimTitle_cancel": {
+    "message": "No longer sends {player}'s request"
+  },
+  "allianceClaimTitle_done": {
+    "message": "Request received: {items}"
+  },
+  "alliancePlanGoing": {
+    "message": "{n} confirmed"
+  },
+  "allianceOpenPlan": {
+    "message": "Open in Military"
+  },
+  "allianceStatusTitle": {
+    "message": "Status of {player}: {ships} free merchant ships, {units} troops, {hostile} incoming attacks"
+  },
+  "allianceRequestField": {
+    "message": "In IkaDios"
+  },
+  "allianceRequestLink": {
+    "message": "Add to the alliance requests (with \"I will send it\")"
+  },
+  "planConfirmations": {
+    "message": "Confirmations"
+  },
+  "planNoConfirmations": {
+    "message": "Nobody has confirmed yet."
+  },
+  "planGoFrom": {
+    "message": "Leaving from"
+  },
+  "planConfirmGoing": {
+    "message": "I go"
+  },
+  "planConfirmCant": {
+    "message": "I can't"
+  },
+  "planConfirm_going": {
+    "message": "Going"
+  },
+  "planConfirm_cant": {
+    "message": "Can't"
+  },
+  "planConfirmNeedsBot": {
+    "message": "Confirmations travel through the alliance bot (set it up in the options)."
+  },
+  "planConfirmGoingTitle": {
+    "message": "Confirms plan {title}: leaves from {city}"
+  },
+  "planConfirmCantTitle": {
+    "message": "Cannot join plan {title}"
+  },
+  "optAllianceAutoStatus": {
+    "message": "Post my status every so often"
+  },
+  "optAllianceStatusHours": {
+    "message": "Every (hours)"
+  },
+  "allianceKind_request": {
+    "message": "requests"
+  },
+  "allianceKind_claim": {
+    "message": "\"I will send it\""
+  },
+  "allianceKind_confirm": {
+    "message": "confirmations"
+  },
+  "allianceKind_status": {
+    "message": "statuses"
+  }
+}

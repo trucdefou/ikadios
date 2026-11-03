@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IkaDios</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="top">
+    <img src="../icons/icon48.png" alt="" width="32" height="32">
+    <h1>IkaDios</h1>
+    <nav class="sections">
+      <a href="#packs" data-i18n="optSectionPacks"></a>
+      <a href="#alerts" data-i18n="optSectionAlerts"></a>
+      <a href="#discord" data-i18n="optSectionDiscord"></a>
+      <a href="#alliance" data-i18n="optSectionAlliance"></a>
+      <a href="#general" data-i18n="optSectionGeneral"></a>
+      <a href="#data" data-i18n="optSectionData"></a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="packs">
+      <h2 data-i18n="optSectionPacks"></h2>
+      <p class="muted" data-i18n="optPacksIntro"></p>
+      <div class="toolbar">
+        <button id="btnNewPack" class="primary" data-i18n="optNewPack"></button>
+        <label class="button">
+          <span data-i18n="optImportPack"></span>
+          <input id="inputImport" type="file" accept=".json,application/json" hidden>
+        </label>
+      </div>
+      <div id="dropZone" class="drop" data-i18n="optDropHere"></div>
+      <p id="packMessage" class="message" role="status"></p>
+      <ul id="packList" class="pack-list"></ul>
+
+      <div id="editor" class="editor" hidden>
+        <h3 data-i18n="optEditPack"></h3>
+        <div class="fields">
+          <label><span data-i18n="optPackName"></span><input id="edName" type="text" maxlength="60"></label>
+          <label><span data-i18n="optPackAuthor"></span><input id="edAuthor" type="text" maxlength="60"></label>
+        </div>
+        <table class="matrix">
+          <thead id="edHead"></thead>
+          <tbody id="edBody"></tbody>
+        </table>
+        <p class="muted" data-i18n="optEditorHint"></p>
+        <div class="toolbar">
+          <button id="btnSavePack" class="primary" data-i18n="save"></button>
+          <button id="btnCancelEdit" data-i18n="cancel"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="alerts">
+      <h2 data-i18n="optSectionAlerts"></h2>
+      <p class="muted" data-i18n="optAlertsIntro"></p>
+      <div id="alertsPanel" class="filter-panel"></div>
+    </section>
+
+    <section id="discord">
+      <h2 data-i18n="optSectionDiscord"></h2>
+      <p class="muted" data-i18n="optDiscordIntro"></p>
+      <ul id="webhookList" class="webhook-list"></ul>
+      <div class="toolbar">
+        <button id="btnAddWebhook" class="primary" data-i18n="optAddWebhook"></button>
+      </div>
+      <label class="row">
+        <span data-i18n="optSummaryHours"></span>
+        <input id="numSummaryHours" type="number" min="1" max="72" step="1">
+      </label>
+      <label class="row">
+        <input id="chkMention" type="checkbox">
+        <span data-i18n="optMentionOnAttack"></span>
+      </label>
+      <p id="discordMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="alliance">
+      <h2 data-i18n="optSectionAlliance"></h2>
+      <p class="muted" data-i18n="optAllianceIntro"></p>
+      <label class="row">
+        <input id="chkAlliance" type="checkbox">
+        <span data-i18n="optAllianceEnabled"></span>
+      </label>
+      <label class="row">
+        <span data-i18n="optAllianceToken"></span>
+        <input id="txtAllianceToken" type="password" autocomplete="off" spellcheck="false" size="50">
+      </label>
+      <label class="row">
+        <span data-i18n="optAllianceChannel"></span>
+        <input id="txtAllianceChannel" type="text" inputmode="numeric" size="24">
+      </label>
+      <label class="row">
+        <span data-i18n="optAlliancePoll"></span>
+        <input id="numAlliancePoll" type="number" min="2" max="60" step="1">
+      </label>
+      <label class="row">
+        <input id="chkAllianceAutoSpy" type="checkbox">
+        <span data-i18n="optAllianceAutoSpy"></span>
+      </label>
+      <label class="row">
+        <input id="chkAllianceAutoPlans" type="checkbox">
+        <span data-i18n="optAllianceAutoPlans"></span>
+      </label>
+      <label class="row">
+        <input id="chkAllianceAutoNotes" type="checkbox">
+        <span data-i18n="optAllianceAutoNotes"></span>
+      </label>
+      <label class="row">
+        <input id="chkAllianceAutoStatus" type="checkbox">
+        <span data-i18n="optAllianceAutoStatus"></span>
+      </label>
+      <label class="row">
+        <span data-i18n="optAllianceStatusHours"></span>
+        <input id="numAllianceStatusHours" type="number" min="1" max="24" step="1">
+      </label>
+      <div class="toolbar">
+        <button id="btnAllianceTest" data-i18n="optAllianceTest"></button>
+        <button id="btnAlliancePoll" data-i18n="optAlliancePollNow"></button>
+      </div>
+      <p id="allianceMessage" class="message" role="status"></p>
+      <p id="allianceState" class="muted"></p>
+      <p class="muted" data-i18n="optAllianceSecurity"></p>
+    </section>
+
+    <section id="general">
+      <h2 data-i18n="optSectionGeneral"></h2>
+      <label class="row">
+        <span data-i18n="optLanguage"></span>
+        <select id="selLanguage"></select>
+      </label>
+      <label class="row">
+        <span data-i18n="optAutoRefreshMinutes"></span>
+        <input id="numAutoMinutes" type="number" min="10" max="720" step="5">
+      </label>
+      <p class="muted" data-i18n="optAutoRefreshHint"></p>
+    </section>
+
+    <section id="data">
+      <h2 data-i18n="optSectionData"></h2>
+      <label class="row">
+        <input id="chkDebug" type="checkbox">
+        <span data-i18n="optDebugCapture"></span>
+      </label>
+      <p class="muted" data-i18n="optDebugHint"></p>
+      <p id="debugState" class="message"></p>
+      <div id="debugFilter" class="filter-panel"></div>
+      <div class="toolbar">
+        <button id="btnExportDebug" data-i18n="optExportDebug"></button>
+        <button id="btnClearDebug" data-i18n="optClearDebug"></button>
+        <span id="debugCount" class="muted"></span>
+      </div>
+      <h3 data-i18n="optAccounts"></h3>
+      <ul id="accountList" class="account-list"></ul>
+    </section>
+  </main>
+
+  <script src="../src/shared/util.js"></script>
+  <script src="../src/shared/i18n.js"></script>
+  <script src="../src/shared/packs.js"></script>
+  <script src="../src/shared/discord-events.js"></script>
+  <script src="../src/shared/capture-filter.js"></script>
+  <script src="../src/shared/schema.js"></script>
+  <script src="../src/content/facets/index.js"></script>
+  <script src="../src/shared/alerts.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
