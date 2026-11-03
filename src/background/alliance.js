@@ -181,6 +181,7 @@
           }
           const item = await IkaDios.intelLink.decode(link);
           if (!item || String(item.from || '').toLowerCase() === me) continue;
+          if (item.kind === 'request' && !m.webhook_id && m.author?.bot) item.data = { ...item.data, messageId: m.id };
           const result = await IkaDios.intelApply.apply(item, ctx);
           if (!result.added) continue;
           counts[item.kind] = (counts[item.kind] || 0) + 1;
@@ -232,7 +233,35 @@
     });
     // The sender's own copy is applied here, since reading skips own messages
     if (res.ok) await IkaDios.intelApply.apply({ kind, from, at: Date.now(), data: IkaDios.intelLink.CLEAN?.[kind]?.(data) || data }, { world: acc.world, updateSnapshot: async () => {} });
+    if (res.ok && kind === 'claim') await updateRequestMessage(config, acc.world, data.requestId).catch((err) => warn('request message edit failed', err));
     return res.ok ? { ok: true, messageId: res.body?.id } : res;
+  }
+
+  const REQUEST_COLORS = { open: 0xc0392b, taken: 0x2e8b57, done: 0x777777 };
+  // Status markers shown in Discord, written as escapes: red circle, ship, check mark
+  const REQUEST_MARKS = { open: '\u{1F534}', taken: '\u{1F6A2}', done: '\u{2705}' };
+
+  // Writes the current state of a request (who sends it, or received) into the
+  // request's own bot message, in the embed author line above the title. Every
+  // member uses the same bot, so any of them may edit it. The channel is read
+  // first so claims of other members not yet imported are not lost.
+  async function updateRequestMessage(config, world, requestId) {
+    await poll().catch(() => null);
+    const key = `allianceRequests:${world}`;
+    const request = ((await chrome.storage.local.get(key))[key] || []).find((r) => r.id === requestId);
+    if (!request?.messageId || !ID.test(String(request.messageId))) return { ok: false, error: 'no-message' };
+    const path = `/channels/${config.channelId}/messages/${request.messageId}`;
+    const current = await api(config, path);
+    if (!current.ok) return current;
+    const [first, ...rest] = current.body?.embeds || [];
+    if (!first) return { ok: false, error: 'no-embed' };
+    await IkaDios.discord.ensureLocale(world);
+    const t = IkaDios.i18n.t;
+    const helpers = Object.keys(request.claims || {});
+    const state = request.status === 'done' ? 'done' : helpers.length ? 'taken' : 'open';
+    const text = state === 'done' ? t('allianceRequestDone') : state === 'taken' ? t('allianceTakenBy', { players: helpers.join(', ') }) : t('allianceNobody');
+    const embed = { ...first, author: { name: `${REQUEST_MARKS[state]} ${t('allianceRequestStatusLine', { status: text })}`.slice(0, 256) }, color: REQUEST_COLORS[state] };
+    return api(config, path, { method: 'PATCH', body: JSON.stringify({ embeds: [embed, ...rest], allowed_mentions: { parse: [] } }) });
   }
 
   async function tradeListing(listing) {
@@ -244,7 +273,7 @@
     const built = await IkaDios.discord.tradeListingBody(listing, acc);
     if (!built) return { ok: false, error: 'empty' };
     const res = await post(config, built.body);
-    if (res.ok && built.request) await IkaDios.discord.rememberRequest(acc, built.request);
+    if (res.ok && built.request) await IkaDios.discord.rememberRequest(acc, { ...built.request, messageId: res.body?.id });
     return res.ok ? { ok: true } : res;
   }
 

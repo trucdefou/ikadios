@@ -2771,6 +2771,9 @@
   "allianceNobody": {
     "message": "Nadie todavía"
   },
+  "allianceRequestStatusLine": {
+    "message": "Estado: {status}"
+  },
   "allianceRequestDone": {
     "message": "Recibido"
   },
@@ -2790,13 +2793,13 @@
     "message": "\"Lo envío yo\" necesita el bot de alianza; sin él puedes entregar igual."
   },
   "allianceClaimTitle_claim": {
-    "message": "Se encarga del pedido de {player}: {items}"
+    "message": "Se encarga del pedido de {player} para {city} ({date}): {items}"
   },
   "allianceClaimTitle_cancel": {
-    "message": "Ya no envía el pedido de {player}"
+    "message": "Ya no envía el pedido de {player} para {city} ({date}): {items}"
   },
   "allianceClaimTitle_done": {
-    "message": "Pedido recibido: {items}"
+    "message": "Pedido recibido de {player} para {city} ({date}): {items}"
   },
   "alliancePlanGoing": {
     "message": "{n} confirmados"

@@ -92,6 +92,9 @@
     ]));
   }
 
+  // Markers for the Discord messages, written as escapes: ship, cross, check mark
+  const CLAIM_MARKS = { claim: '\u{1F6A2}', cancel: '\u{274C}', done: '\u{2705}' };
+
   const itemsText = (items, i18n) => items.map((i) => `${i18n.t(`resourceShort_${i.resource}`)} ${i18n.formatNumber(i.amount)}`).join(', ');
 
   function requestsSection(data, snapshot, i18n, rerender) {
@@ -104,7 +107,9 @@
     if (!open.length && !done.length) return el('p', { class: 'empty', text: t('allianceNoRequests') });
     const status = el('p', { class: 'hint' });
     const claim = async (r, state) => {
-      const title = t(`allianceClaimTitle_${state}`, { player: r.from, items: itemsText(r.items, i18n) });
+      // Name the request (who, where, what, when) so readers know which one it is
+      const city = r.x != null ? `${r.city || '?'} [${r.x}:${r.y}]` : r.city || '?';
+      const title = `${CLAIM_MARKS[state]} ` + t(`allianceClaimTitle_${state}`, { player: r.from || '?', city, items: itemsText(r.items, i18n), date: r.at ? i18n.formatTime(r.at) : '?' });
       const res = await chrome.runtime.sendMessage({ type: 'ikadios:allianceItem', kind: 'claim', data: { requestId: r.id, status: state }, title }).catch((err) => ({ ok: false, error: String(err) }));
       status.textContent = res?.ok ? t('shareAllianceSent') : t('discordFailedReason', { reason: res?.error || '?' });
     };

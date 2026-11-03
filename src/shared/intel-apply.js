@@ -106,7 +106,14 @@
     const key = requestsKey(ctx.world);
     const now = Date.now();
     const list = ((await getList(key)) || []).filter((r) => (r.at || 0) + REQUEST_KEEP_MS > now);
-    if (list.some((r) => r.id === item.data.id && lower(r.from) === lower(item.from))) return { added: false };
+    const existing = list.find((r) => r.id === item.data.id && lower(r.from) === lower(item.from));
+    if (existing) {
+      // The same request seen again with its bot message: remember where it is
+      if (!item.data.messageId || existing.messageId) return { added: false };
+      existing.messageId = item.data.messageId;
+      await chrome.storage.local.set({ [key]: list });
+      return { added: false };
+    }
     list.unshift({ ...item.data, from: item.from, at: item.at || now, claims: {}, status: 'open' });
     await chrome.storage.local.set({ [key]: list.slice(0, MAX_REQUESTS) });
     return { added: true };
