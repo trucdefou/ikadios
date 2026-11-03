@@ -1,0 +1,34 @@
+# Local secrets for development scripts (the extension itself reads none)
+.env
+.env.*
+!.env.example
+
+# Generated launch video and its composition
+brag-output/
+
+# Debug exports from the extension (real game data)
+ikadios-rounds-*.json
+ikadios-captures-*.json
+ikadios-snap*.json
+ikadios-pack-*.json
+
+# Packaged builds
+*.zip
+*.crx
+*.xpi
+*.pem
+web-ext-artifacts/
+
+# Python and Node leftovers
+__pycache__/
+*.pyc
+node_modules/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+
+# Parser tests and their real game captures (local only, contain account data)
+tests/
+fixtures/
