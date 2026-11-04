@@ -66,8 +66,8 @@
     ['td', '.grid td', ['color', 'font-family', 'font-size', 'border-top', 'border-right', 'border-bottom', 'border-left', 'padding-top', 'padding-right', 'padding-bottom', 'padding-left']],
     ['td', '.grid tbody tr:nth-child(odd)', ['background-color', 'background-image']],
     ['tdAlt', '.grid tbody tr:nth-child(even)', ['background-color', 'background-image']],
-    // The game sizes buttons with content-box; copy that so text is not clipped
-    ['button', '.refresh', BOX_PROPS.filter((prop) => prop !== 'height' && prop !== 'min-height')],
+    // Buttons keep the IkaDios style: the game's button image would override the
+    // variants (Discord, WhatsApp, running) and the button groups
   ];
 
   // Values that mean "nothing set" and must not override the overlay's defaults

@@ -95,7 +95,13 @@
     }
 
     const fin = IkaDios.facets.finances(snapshot);
-    if (on('goldLow') && fin.hoursLeft != null && fin.hoursLeft < th('goldLow')) push('goldLow', { hours: fin.hoursLeft });
+    if (on('goldLow') && fin.net != null && fin.net < 0 && fin.gold != null) {
+      // Gold projected to now with the net rate, since the last game read may be old
+      const sinceHours = fin.goldUpdatedAt ? Math.max(0, now - fin.goldUpdatedAt) / 3600000 : 0;
+      const gold = Math.max(0, fin.gold + fin.net * sinceHours);
+      const hoursLeft = gold / -fin.net;
+      if (hoursLeft < th('goldLow')) push('goldLow', { hours: hoursLeft, gold: Math.round(gold), rate: Math.round(-fin.net) });
+    }
 
     const research = snapshot.research;
     if (on('researchAvailable') && research?.points != null) {
@@ -119,7 +125,10 @@
       case 'storageFull':
         return i18n.t(p.hours > 0 ? 'alert_storageFullSoon' : 'alert_storageFull', { city: p.city, resource: i18n.t(`resource_${p.resource}`), time: hours(p.hours) });
       case 'goldLow':
-        return i18n.t('alert_goldLow', { time: hours(p.hours) });
+        // Older alerts (and shared items) may lack gold and rate
+        return p.gold != null && p.rate != null
+          ? i18n.t('alert_goldLowDetail', { gold: p.gold, rate: p.rate, time: hours(p.hours) })
+          : i18n.t('alert_goldLow', { time: hours(p.hours) });
       case 'unhappy':
         return i18n.t('alert_unhappy', { city: p.city, value: p.value });
       case 'constructionDone':

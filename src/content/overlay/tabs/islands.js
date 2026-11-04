@@ -73,7 +73,7 @@
             levelCell(wonderLevel, visited?.wonderUpgradeEndsAt, countdown),
             el('td', { class: 'num', text: w ? `${cities.length} / ${w.free ?? '-'}` : String(cities.length || '-') }),
             el('td', { text: allies || '-' }),
-            el('td', {}, own.islandId ? el('button', { class: 'link', text: t('openInGame'), onclick: () => goToView('island', { islandId: own.islandId }) }) : null),
+            el('td', {}, own.islandId ? el('button', { class: 'btn-soft', text: t('openInGame'), onclick: () => goToView('island', { islandId: own.islandId }) }) : null),
           ]);
         })
       );

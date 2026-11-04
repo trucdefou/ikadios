@@ -44,7 +44,7 @@
             )),
           ])
         : null,
-      el('button', { class: 'link', text: t('openFinances'), onclick: () => goToView('finances') })
+      el('button', { class: 'btn-soft', text: t('openFinances'), onclick: () => goToView('finances') })
     );
   }
 

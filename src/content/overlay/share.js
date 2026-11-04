@@ -78,7 +78,7 @@
       }
     };
     const discord = el('button', {
-      class: 'refresh',
+      class: 'refresh discord',
       text: t('sendToDiscord'),
       onclick: async (e) => {
         const button = e.currentTarget;
@@ -159,6 +159,9 @@
       if (!alliance.isConnected) return off?.();
       alliance.hidden = !on;
     });
+    IkaDios.icons.brand(discord, 'discord');
+    IkaDios.icons.brand(alliance, 'discord', t('shareAllianceShort'));
+    IkaDios.icons.brand(whatsapp, 'whatsapp');
     return el('div', { class: 'map-toolbar share-bar' }, [el('strong', { text: scopeLabel }), discord, alliance, whatsapp, status]);
   }
 

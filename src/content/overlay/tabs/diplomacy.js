@@ -12,7 +12,7 @@
     if (!d.updatedAt) {
       container.append(
         el('p', { class: 'empty', text: t('pending_diplomacy') }),
-        el('button', { class: 'link', text: t('openInGame'), onclick: () => goToView('diplomacyAdvisor') })
+        el('button', { class: 'btn-soft', text: t('openInGame'), onclick: () => goToView('diplomacyAdvisor') })
       );
       return;
     }
@@ -40,7 +40,7 @@
           ])
         : el('p', { class: 'empty', text: t('diplomacyNoMessages') }),
       el('p', { class: 'hint', text: t('diplomacyPrivacy') }),
-      el('button', { class: 'link', text: t('openInGame'), onclick: () => goToView('diplomacyAdvisor') })
+      el('button', { class: 'btn-soft', text: t('openInGame'), onclick: () => goToView('diplomacyAdvisor') })
     );
   }
 

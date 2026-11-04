@@ -103,6 +103,15 @@
     return { format: FORMAT, version: 1, world, name: layer.name, exportedAt: now(), marks: layer.marks };
   }
 
+  // Optional sub-colors of a mark (several owners on one island)
+  function validParts(parts) {
+    if (!Array.isArray(parts)) return [];
+    return parts
+      .slice(0, 8)
+      .filter((p) => p && /^#[0-9a-f]{6}$/i.test(p.color))
+      .map((p) => ({ color: p.color, label: String(p.label || '').slice(0, MAX_LABEL) }));
+  }
+
   // Imported marks are validated and the layer is added as a new one
   function importLayer(json) {
     if (!json || json.format !== FORMAT || typeof json.marks !== 'object') throw new Error('format');
@@ -113,6 +122,8 @@
       const expiresAt = Number(mark.expiresAt) || null;
       if (expiresAt && expiresAt <= now()) continue;
       layer.marks[coord] = { color, label: String(mark.label || '').slice(0, MAX_LABEL), expiresAt };
+      const parts = validParts(mark.parts);
+      if (parts.length) layer.marks[coord].parts = parts;
     }
     data.layers.push(layer);
     data.activeLayerId = layer.id;
@@ -149,6 +160,24 @@
     data.activeLayerId = layer.id;
     await save();
     return count;
+  }
+
+  // Layer filled from world data (a player or an alliance). `source` is kept so the
+  // layer can be rebuilt later: { kind: 'player'|'alliance', text }
+  async function addLayerFromMarks(name, marks, source) {
+    const layer = newLayer(String(name || IkaDios.i18n.t('layerDefaultName')).slice(0, 40));
+    layer.marks = marks;
+    layer.source = source || null;
+    data.layers.push(layer);
+    data.activeLayerId = layer.id;
+    await save();
+    return Object.keys(marks).length;
+  }
+
+  async function replaceMarks(layer, marks) {
+    layer.marks = marks;
+    await save();
+    return Object.keys(marks).length;
   }
 
   // Layers written by another context (the alliance bot in the worker) replace the
@@ -188,6 +217,8 @@
     importLayer,
     marksFromText,
     addLayerFromText,
+    addLayerFromMarks,
+    replaceMarks,
     onChange,
   };
 })(typeof self !== 'undefined' ? self : window);

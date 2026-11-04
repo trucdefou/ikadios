@@ -167,6 +167,7 @@
         .filter((c) => c.income != null),
       perCityUpdatedAt: snapshot?.finances?.updatedAt || 0,
       updatedAt: g.updatedAt || 0,
+      goldUpdatedAt: g.goldUpdatedAt || g.updatedAt || 0,
     };
   }
 

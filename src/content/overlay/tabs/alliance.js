@@ -134,8 +134,8 @@
         el('td', { class: 'age', text: i18n.formatRelative(r.at) }),
         el('td', { class: 'nowrap' }, r.status === 'done' ? [IkaDios.icons.button('trash', t('delete'), () => remove(r))] : [
           !mine && bot && !claimedByMe ? el('button', { class: 'refresh', text: t('allianceClaim'), onclick: () => claim(r, 'claim') }) : null,
-          !mine && bot && claimedByMe ? el('button', { class: 'link', text: t('allianceUnclaim'), onclick: () => claim(r, 'cancel') }) : null,
-          !mine ? el('button', { class: 'link', text: t('allianceDeliver'), onclick: () => deliver(r) }) : null,
+          !mine && bot && claimedByMe ? el('button', { class: 'btn-soft', text: t('allianceUnclaim'), onclick: () => claim(r, 'cancel') }) : null,
+          !mine ? el('button', { class: 'btn-soft', text: t('allianceDeliver'), onclick: () => deliver(r) }) : null,
           mine && bot ? el('button', { class: 'refresh', text: t('allianceMarkDone'), onclick: () => claim(r, 'done') }) : null,
           IkaDios.icons.button('trash', t('delete'), () => remove(r)),
         ]),
@@ -162,7 +162,7 @@
         el('td', { text: `[${p.target.x}:${p.target.y}] ${p.target.player || ''}` }),
         el('td', { class: 'nowrap', text: i18n.formatTime(p.arriveAt) }),
         el('td', { text: t('alliancePlanGoing', { n: going }) }),
-        el('td', {}, el('button', { class: 'link', text: t('allianceOpenPlan'), onclick: () => mounted?.helpers.openTab('military') })),
+        el('td', {}, el('button', { class: 'btn-soft', text: t('allianceOpenPlan'), onclick: () => mounted?.helpers.openTab('military') })),
       ]);
     })));
   }

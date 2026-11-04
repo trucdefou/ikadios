@@ -1097,6 +1097,9 @@
   "alert_goldLow": {
     "message": "El oro se agota en {time}"
   },
+  "alert_goldLowDetail": {
+    "message": "El oro se agota: {gold} de oro ahora, pierdes {rate} por hora, se acaba en {time}"
+  },
   "alert_unhappy": {
     "message": "{city}: felicidad {value}"
   },
@@ -1223,6 +1226,9 @@
   "mapFilter_freeOnly": {
     "message": "Solo islas con huecos libres"
   },
+  "mapFilter_center": {
+    "message": "Mostrar centro"
+  },
   "mapCoords": {
     "message": "Coordenadas"
   },
@@ -1261,12 +1267,6 @@
   },
   "mapLegendMulti": {
     "message": "Dos o más búsquedas"
-  },
-  "mapLegendMoveOwn": {
-    "message": "Tus flotas"
-  },
-  "mapLegendMoveHostile": {
-    "message": "Flotas hostiles"
   },
   "playerState_vacation": {
     "message": "vacaciones"
@@ -2863,5 +2863,101 @@
   },
   "allianceKind_status": {
     "message": "estados"
+  },
+  "mapMovesTitle": {
+    "message": "Movimientos"
+  },
+  "mapMoveHostile": {
+    "message": "Ataque contra ti"
+  },
+  "mapMoveHostileHint": {
+    "message": "Línea roja continua, anillo pulsante en el destino."
+  },
+  "mapMoveOwnAttack": {
+    "message": "Tus ataques"
+  },
+  "mapMoveOwnAttackHint": {
+    "message": "Saqueo, ocupación, bloqueo."
+  },
+  "mapMoveOwnTroops": {
+    "message": "Tus tropas"
+  },
+  "mapMoveOwnTroopsHint": {
+    "message": "Despliegues y defensa."
+  },
+  "mapMoveOwnTrade": {
+    "message": "Tu comercio"
+  },
+  "mapMoveOwnTradeHint": {
+    "message": "Tus transportes y mercancías."
+  },
+  "mapMoveAllyTroops": {
+    "message": "Tropas aliadas"
+  },
+  "mapMoveAllyTroopsHint": {
+    "message": "Aliados enviando tropas o barcos."
+  },
+  "mapMoveAllyTrade": {
+    "message": "Comercio aliado"
+  },
+  "mapMoveAllyTradeHint": {
+    "message": "Aliados enviando productos."
+  },
+  "mapMoveOther": {
+    "message": "Otros"
+  },
+  "mapMoveOtherHint": {
+    "message": "Movimientos neutrales o desconocidos."
+  },
+  "mapMovesLines": {
+    "message": "Línea continua: ataque. Guiones largos: tropas. Guiones cortos: comercio. Puntos: otros."
+  },
+  "mapMovesList": {
+    "message": "Movimientos activos"
+  },
+  "mapMovesNone": {
+    "message": "No hay movimientos conocidos."
+  },
+  "layerFromWorld": {
+    "message": "Capa de jugador o alianza"
+  },
+  "layerWorldPlaceholder": {
+    "message": "Jugador o etiqueta de alianza"
+  },
+  "layerRebuild": {
+    "message": "Actualizar con datos del mundo"
+  },
+  "layerFromWorldHint": {
+    "message": "Marca cada isla donde ese jugador o alianza tiene una ciudad, con el color elegido. Las islas compartidas con otra capa visible se dividen en una franja por capa. Usa el botón de actualizar de la capa para refrescarla con datos más nuevos."
+  },
+  "mapAlliesHere": {
+    "message": "Tu alianza aquí: {names}"
+  },
+  "mapLegendFlags": {
+    "message": "Islas marcadas: esquina verde (arriba a la derecha) = viven miembros de tu alianza; esquina dorada (arriba a la izquierda) = vives tú."
+  },
+  "mapLayersLegend": {
+    "message": "Capas"
+  },
+  "mapLayersNone": {
+    "message": "No hay capas visibles."
+  },
+  "layerHide": {
+    "message": "Ocultar capa"
+  },
+  "layerShow": {
+    "message": "Mostrar capa"
+  },
+  "shareAllianceShort": {
+    "message": "(Colaborativo)"
+  },
+  "worldmapZoomOut": {
+    "message": "Alejar"
+  },
+  "worldmapZoomIn": {
+    "message": "Acercar"
+  },
+  "worldmapZoomReset": {
+    "message": "Restablecer zoom"
   }
 }

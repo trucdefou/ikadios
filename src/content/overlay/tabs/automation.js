@@ -299,7 +299,7 @@
 
   function clearDoneButton(tasks, i18n) {
     const done = tasks.find((x) => x.status === 'done');
-    return done ? el('button', { class: 'link', text: i18n.t('autoClearDone'), onclick: () => send({ type: 'ikadios:autoTask', id: done.id, op: 'clearDone' }) }) : null;
+    return done ? el('button', { class: 'btn-soft', text: i18n.t('autoClearDone'), onclick: () => send({ type: 'ikadios:autoTask', id: done.id, op: 'clearDone' }) }) : null;
   }
 
   function taskTable(i18n) {
@@ -461,7 +461,7 @@
           ])
         )),
       ]),
-      el('button', { class: 'link', text: t('autoClearLog'), onclick: () => send({ type: 'ikadios:autoClearLog' }).then(reload) }),
+      el('button', { class: 'btn-soft danger', text: t('autoClearLog'), onclick: () => send({ type: 'ikadios:autoClearLog' }).then(reload) }),
     ]);
   }
 

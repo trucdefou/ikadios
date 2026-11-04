@@ -39,8 +39,8 @@
     const status = el('span', { class: 'hint' });
     container.append(
       el('div', { class: 'popover-actions' }, [
-        el('button', {
-          class: 'refresh',
+        IkaDios.icons.brand(el('button', {
+          class: 'refresh discord',
           text: t('sendToDiscord'),
           onclick: async (e) => {
             // Keep the element: inside the Shadow DOM, event.target is cleared after an await
@@ -55,7 +55,7 @@
               button.disabled = false;
             }
           },
-        }),
+        }), 'discord'),
         status,
       ])
     );

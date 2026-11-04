@@ -35,7 +35,7 @@
         : el('p', { class: 'empty' }, [
             t('emptyTransport'),
             ' ',
-            el('button', { class: 'link', text: t('openMilitaryAdvisor'), onclick: () => goToView('militaryAdvisor') }),
+            el('button', { class: 'btn-soft', text: t('openMilitaryAdvisor'), onclick: () => goToView('militaryAdvisor') }),
           ]),
       el('p', { class: 'age', text: t('updated', { when: i18n.formatRelative(snapshot?.military?.updatedAt || data.updatedAt) }) })
     );

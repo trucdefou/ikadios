@@ -1097,6 +1097,9 @@
   "alert_goldLow": {
     "message": "Gold runs out in {time}"
   },
+  "alert_goldLowDetail": {
+    "message": "Gold running out: {gold} gold now, losing {rate} per hour, runs out in {time}"
+  },
   "alert_unhappy": {
     "message": "{city}: happiness {value}"
   },
@@ -1223,6 +1226,9 @@
   "mapFilter_freeOnly": {
     "message": "Only islands with free slots"
   },
+  "mapFilter_center": {
+    "message": "Show center"
+  },
   "mapCoords": {
     "message": "Coordinates"
   },
@@ -1261,12 +1267,6 @@
   },
   "mapLegendMulti": {
     "message": "Two or more searches"
-  },
-  "mapLegendMoveOwn": {
-    "message": "Your fleets"
-  },
-  "mapLegendMoveHostile": {
-    "message": "Hostile fleets"
   },
   "playerState_vacation": {
     "message": "vacation"
@@ -2863,5 +2863,101 @@
   },
   "allianceKind_status": {
     "message": "statuses"
+  },
+  "mapMovesTitle": {
+    "message": "Movements"
+  },
+  "mapMoveHostile": {
+    "message": "Attack against you"
+  },
+  "mapMoveHostileHint": {
+    "message": "Solid red line, pulsing ring on the target."
+  },
+  "mapMoveOwnAttack": {
+    "message": "Your attacks"
+  },
+  "mapMoveOwnAttackHint": {
+    "message": "Plunder, occupation, blockade."
+  },
+  "mapMoveOwnTroops": {
+    "message": "Your troops"
+  },
+  "mapMoveOwnTroopsHint": {
+    "message": "Deployments and defense."
+  },
+  "mapMoveOwnTrade": {
+    "message": "Your trade"
+  },
+  "mapMoveOwnTradeHint": {
+    "message": "Your transports and goods."
+  },
+  "mapMoveAllyTroops": {
+    "message": "Allied troops"
+  },
+  "mapMoveAllyTroopsHint": {
+    "message": "Allies sending troops or ships."
+  },
+  "mapMoveAllyTrade": {
+    "message": "Allied trade"
+  },
+  "mapMoveAllyTradeHint": {
+    "message": "Allies sending goods."
+  },
+  "mapMoveOther": {
+    "message": "Other"
+  },
+  "mapMoveOtherHint": {
+    "message": "Neutral or unknown movements."
+  },
+  "mapMovesLines": {
+    "message": "Solid line: attack. Long dashes: troops. Short dashes: trade. Dots: other."
+  },
+  "mapMovesList": {
+    "message": "Active movements"
+  },
+  "mapMovesNone": {
+    "message": "No movements known."
+  },
+  "layerFromWorld": {
+    "message": "Layer from player or alliance"
+  },
+  "layerWorldPlaceholder": {
+    "message": "Player or alliance tag"
+  },
+  "layerRebuild": {
+    "message": "Update from world data"
+  },
+  "layerFromWorldHint": {
+    "message": "Marks every island where that player or alliance has a city, in the chosen color. Islands shared with another visible layer are split into one stripe per layer. Use the update button of the layer to refresh it with newer world data."
+  },
+  "mapAlliesHere": {
+    "message": "Your alliance here: {names}"
+  },
+  "mapLegendFlags": {
+    "message": "Marked islands: green corner (top right) = members of your alliance live there; gold corner (top left) = you do."
+  },
+  "mapLayersLegend": {
+    "message": "Layers"
+  },
+  "mapLayersNone": {
+    "message": "No visible layers."
+  },
+  "layerHide": {
+    "message": "Hide layer"
+  },
+  "layerShow": {
+    "message": "Show layer"
+  },
+  "shareAllianceShort": {
+    "message": "(Collaborative)"
+  },
+  "worldmapZoomOut": {
+    "message": "Zoom out"
+  },
+  "worldmapZoomIn": {
+    "message": "Zoom in"
+  },
+  "worldmapZoomReset": {
+    "message": "Reset zoom"
   }
 }

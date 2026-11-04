@@ -40,7 +40,7 @@
     if (!r.updatedAt) {
       container.append(
         el('p', { class: 'empty', text: t('pending_research') }),
-        el('button', { class: 'link', text: t('openInGame'), onclick: () => goToView('researchAdvisor') })
+        el('button', { class: 'btn-soft', text: t('openInGame'), onclick: () => goToView('researchAdvisor') })
       );
       return;
     }

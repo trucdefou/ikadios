@@ -124,7 +124,7 @@
           el('td', { class: 'nowrap', title: t('playerTravelHint'), text: travel ? i18n.formatDuration(Math.round(travel / 1000)) : '-' }),
           el('td', { class: 'age', text: c.state ? i18n.tOr(`playerState_${c.state}`, c.state) : '' }),
           el('td', {}, el('button', {
-            class: 'link',
+            class: 'btn-soft',
             text: t('planAttack'),
             onclick: () => openTab('military', { plan: { x: c.island.x, y: c.island.y, name: c.name, player: c.player } }),
           })),

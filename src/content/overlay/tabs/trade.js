@@ -121,12 +121,12 @@
               oninput: (e) => (item.amount = e.target.value),
             }),
             form.items.length > 1
-              ? el('button', { class: 'link', text: t('remove'), onclick: () => { form.items.splice(i, 1); drawItems(); } })
+              ? el('button', { class: 'btn-soft danger', text: t('remove'), onclick: () => { form.items.splice(i, 1); drawItems(); } })
               : null,
           ]);
         }),
         form.items.length < MAX_ITEMS
-          ? el('button', { class: 'link', text: t('tradeListingAddResource'), onclick: () => { form.items.push({ resource: 'marble', amount: '' }); drawItems(); } })
+          ? el('button', { class: 'btn-soft', text: t('tradeListingAddResource'), onclick: () => { form.items.push({ resource: 'marble', amount: '' }); drawItems(); } })
           : ''
       );
     drawItems();
@@ -135,7 +135,7 @@
     const note = el('input', { type: 'text', maxlength: '300', value: form.note, placeholder: t('tradeListingNotePlaceholder'), oninput: (e) => (form.note = e.target.value) });
 
     const send = el('button', {
-      class: 'refresh',
+      class: 'refresh discord',
       text: t('sendToDiscord'),
       onclick: async () => {
         const items = form.items.filter((i) => Number(i.amount) > 0).map((i) => ({ resource: i.resource, amount: Number(i.amount) }));
@@ -197,7 +197,12 @@
       itemsBox,
       el('div', { class: 'trade-row' }, [exchange]),
       el('div', { class: 'trade-row' }, [note]),
-      el('div', { class: 'trade-row' }, [send, alliance, whatsapp, status]),
+      el('div', { class: 'trade-row' }, [
+        IkaDios.icons.brand(send, 'discord'),
+        IkaDios.icons.brand(alliance, 'discord', t('shareAllianceShort')),
+        IkaDios.icons.brand(whatsapp, 'whatsapp'),
+        status,
+      ]),
     ]);
   }
 
@@ -335,7 +340,7 @@
       },
     });
     const discard = el('button', {
-      class: 'link',
+      class: 'btn-soft danger',
       text: t('deliveryDiscard'),
       onclick: () => {
         IkaDios.tradeDelivery = null;

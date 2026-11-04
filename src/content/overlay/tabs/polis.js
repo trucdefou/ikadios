@@ -92,7 +92,7 @@
       remove.hidden = !res.ok;
     };
     const remove = el('button', {
-      class: 'link',
+      class: 'btn-soft danger',
       text: t('polisAutoRemove'),
       hidden: existing ? null : true,
       onclick: async () => {
@@ -189,7 +189,7 @@
         }),
         up.known && Object.keys(up.missing || {}).length
           ? el('button', {
-              class: 'link',
+              class: 'btn-soft',
               text: t('polisAskAlliance'),
               title: t('polisAskAllianceHint'),
               onclick: () => {
@@ -331,7 +331,7 @@
         ' ',
         columnOrder.length
           ? el('button', {
-              class: 'link',
+              class: 'btn-soft',
               text: t('polisResetOrder'),
               onclick: () => {
                 saveOrder([]);

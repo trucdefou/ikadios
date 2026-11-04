@@ -24,7 +24,7 @@
           el('td', { class: 'num', text: i18n.formatNumber(c.spies.onMission) }),
           el('td', { class: 'num', text: i18n.formatNumber(c.spies.training) }),
           el('td', { class: 'num', text: c.spies.canTrain != null ? i18n.formatNumber(c.spies.canTrain) : '-' }),
-          el('td', {}, hideout ? el('button', { class: 'link', text: t('openInGame'), onclick: () => goToView('safehouse', { cityId: c.id, position: hideout.pos }) }) : null),
+          el('td', {}, hideout ? el('button', { class: 'btn-soft', text: t('openInGame'), onclick: () => goToView('safehouse', { cityId: c.id, position: hideout.pos }) }) : null),
         ]);
       })),
     ]);
@@ -141,9 +141,9 @@
       el('p', { class: 'age' }, [
         snapshot?.espionage?.reportsUpdatedAt ? t('updated', { when: i18n.formatRelative(snapshot.espionage.reportsUpdatedAt) }) : t('spyReportsHint'),
         ' ',
-        hideout ? el('button', { class: 'link', text: t('spyOpenReports'), onclick: () => openReports('tabReports') }) : null,
+        hideout ? el('button', { class: 'btn-soft', text: t('spyOpenReports'), onclick: () => openReports('tabReports') }) : null,
         ' ',
-        hideout ? el('button', { class: 'link', text: t('spyOpenArchive'), onclick: () => openReports('tabArchive') }) : null,
+        hideout ? el('button', { class: 'btn-soft', text: t('spyOpenArchive'), onclick: () => openReports('tabArchive') }) : null,
       ])
     );
     if (!reports.length) {

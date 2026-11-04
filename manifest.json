@@ -132,6 +132,7 @@
         "src/content/overlay/game-skin.js",
         "src/content/overlay/overlay.js",
         "src/content/advisors-skin.js",
+        "src/content/worldmap-zoom.js",
         "src/content/bridge.js",
         "src/content/main.js"
       ],

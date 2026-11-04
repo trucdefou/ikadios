@@ -42,7 +42,7 @@
             setTimeout(close, 2500);
           },
         }),
-        el('button', { class: 'link', text: t('deliveryDiscard'), onclick: close }),
+        el('button', { class: 'btn-soft danger', text: t('deliveryDiscard'), onclick: close }),
         status,
       ]),
       el('p', { class: 'age', text: t('intelHint') }),

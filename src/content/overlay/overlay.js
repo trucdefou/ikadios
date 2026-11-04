@@ -165,6 +165,7 @@
     refs.meter = el('div', { class: 'meter', hidden: true }, refs.meterFill);
     refs.tabs = el('nav', { class: 'tabs', role: 'tablist' });
     refs.body = el('div', { class: 'body' });
+    new MutationObserver(scheduleAlign).observe(refs.body, { childList: true, subtree: true });
     // Notices above the tab content (e.g. "import this shared item?")
     refs.notice = el('div', { class: 'notice-slot' });
     refs.foot = el('div', { class: 'foot' });
@@ -414,6 +415,50 @@
       container.append(el('p', { class: 'error', text: i18n.t('renderError') }));
     }
     refs.body.replaceChildren(container);
+  }
+
+  // Tables: columns whose cells are all numbers, amounts, times or dates are
+  // right-aligned (class `n` on th and td); text columns stay left-aligned.
+  // Cells with only "-" or nothing do not count. Rows with colspan are skipped.
+  const NUMERIC = /^[\d\s.,:/+\-%()hmsdx]*\d[\d\s.,:/+\-%()hmsdx]*$/i;
+  function alignColumns(root) {
+    for (const table of root.querySelectorAll('table.grid:not(.matrix)')) {
+      const rows = [...table.querySelectorAll('tbody tr')].filter((tr) => ![...tr.cells].some((c) => c.colSpan > 1));
+      const sig = `${rows.length}:${rows[0]?.cells.length || 0}`;
+      if (table.dataset.aligned === sig) continue;
+      table.dataset.aligned = sig;
+      const width = Math.max(0, ...rows.map((r) => r.cells.length));
+      for (let col = 1; col < width; col++) {
+        let votes = 0;
+        let numeric = true;
+        for (const tr of rows) {
+          const cell = tr.cells[col];
+          if (!cell || cell.querySelector('input, select, button.refresh, button.btn-soft, button.icon')) continue;
+          const text = cell.textContent.trim();
+          if (!text || text === '-') continue;
+          votes++;
+          if (!NUMERIC.test(text)) {
+            numeric = false;
+            break;
+          }
+        }
+        const on = numeric && votes > 0;
+        for (const tr of rows) tr.cells[col]?.classList.toggle('n', on);
+        for (const tr of table.querySelectorAll('thead tr')) {
+          if (![...tr.cells].some((c) => c.colSpan > 1)) tr.cells[col]?.classList.toggle('n', on);
+        }
+      }
+    }
+  }
+
+  let alignPending = false;
+  function scheduleAlign() {
+    if (alignPending || !refs.body) return;
+    alignPending = true;
+    requestAnimationFrame(() => {
+      alignPending = false;
+      alignColumns(refs.body);
+    });
   }
 
   // Data updates wait while a popover is open, so it does not vanish under the cursor

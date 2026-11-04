@@ -61,6 +61,8 @@
         updatedAt: now,
       },
     };
+    // Time of the gold reading itself, used to project gold to the present
+    if (patch.global.gold != null) patch.global.goldUpdatedAt = now;
 
     // Full page model: advisorData; AJAX header: advisors
     const advisors = parseAdvisors(header.advisors ?? header.advisorData);
@@ -107,9 +109,20 @@
       model.serverName || model.avatarAllyId
         ? { account: { serverName: model.serverName || undefined, allyId: model.avatarAllyId ? String(model.avatarAllyId) : undefined } }
         : null,
-      parseHeader(model.headerData, selectedCityId)
+      withoutGold(parseHeader(model.headerData, selectedCityId))
     );
   });
+
+  // On full page loads the game's model has gold = 0 (the header shows the real
+  // amount from server HTML); only AJAX headerData carries the real value, so the
+  // model must not overwrite the stored gold.
+  function withoutGold(patch) {
+    if (patch?.global) {
+      delete patch.global.gold;
+      delete patch.global.goldUpdatedAt;
+    }
+    return patch;
+  }
 
   // AJAX navigation: ["updateGlobalData", {headerData, backgroundData, ...}].
   // The city list and the selected city come in headerData.cityDropdownMenu

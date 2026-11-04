@@ -28,10 +28,37 @@
     inactive: '#6d6d6d',
     vacation: '#2aa198',
     hover: '#542c0f',
+    center: '#000000',
     moveOwn: '#1f6fd1',
     moveHostile: '#e0312b',
     moveOther: '#ef6c00',
+    moveOwnTrade: '#1f6fd1',
+    moveOwnTroops: '#6a1b9a',
+    moveOwnAttack: '#c2185b',
+    moveAllyTrade: '#00897b',
+    moveAllyTroops: '#7cb342',
   };
+  // Movement categories: legend order, color and line style (dash pattern)
+  const MOVE_KINDS = [
+    { key: 'hostile', color: 'moveHostile', dash: [], label: 'mapMoveHostile' },
+    { key: 'ownAttack', color: 'moveOwnAttack', dash: [8, 3], label: 'mapMoveOwnAttack' },
+    { key: 'ownTroops', color: 'moveOwnTroops', dash: [8, 3], label: 'mapMoveOwnTroops' },
+    { key: 'ownTrade', color: 'moveOwnTrade', dash: [4, 3], label: 'mapMoveOwnTrade' },
+    { key: 'allyTroops', color: 'moveAllyTroops', dash: [8, 3], label: 'mapMoveAllyTroops' },
+    { key: 'allyTrade', color: 'moveAllyTrade', dash: [4, 3], label: 'mapMoveAllyTrade' },
+    { key: 'other', color: 'moveOther', dash: [2, 3], label: 'mapMoveOther' },
+  ];
+  const MOVE_KIND = Object.fromEntries(MOVE_KINDS.map((k) => [k.key, k]));
+  const TRADE_MISSION = /transport|trade|market/i;
+  const ATTACK_MISSION = /plunder|occupy|blockade|attack|pillage/i;
+
+  function moveKind(m) {
+    if (m.hostile) return 'hostile';
+    const trade = TRADE_MISSION.test(m.mission || '');
+    if (m.own) return trade ? 'ownTrade' : ATTACK_MISSION.test(m.mission || '') ? 'ownAttack' : 'ownTroops';
+    if (m.sameAlliance) return trade ? 'allyTrade' : 'allyTroops';
+    return 'other';
+  }
   const TRADEGOOD_KEY = { 1: 'wine', 2: 'marble', 3: 'glass', 4: 'sulfur' };
 
   // Module state survives re-renders of the tab
@@ -47,7 +74,7 @@
     offset: { x: 0, y: 0 },
     hover: null,
     searches: Array.from({ length: SEARCH_SLOTS }, () => ({ kind: 'player', text: '' })),
-    filters: { inactive: false, vacation: false, freeOnly: false },
+    filters: { inactive: false, vacation: false, freeOnly: false, center: true },
     snapshot: null,
     paint: { on: false, color: '#e0312b', label: '', hours: 24 },
     // Time slider: minutes ahead of now that the movements are drawn at
@@ -123,6 +150,15 @@
 
   function isOwnIsland(island, me) {
     return me.ownCoords.has(`${island.x}:${island.y}`) || (me.name && island.cities.some((c) => (c.player || '').toLowerCase() === me.name));
+  }
+
+  // Members of your alliance (other than you) with a city on the island
+  function alliedPlayers(island, me) {
+    if (!me.ally) return [];
+    const names = island.cities
+      .filter((c) => c.ally === me.ally && (c.player || '').toLowerCase() !== me.name)
+      .map((c) => c.player);
+    return [...new Set(names)].sort();
   }
 
   function islandColor(island, me, searches) {
@@ -243,7 +279,8 @@
       }
     }
 
-    drawMarks(ctx, g);
+    drawMarks(ctx, g, me);
+    updateLayerLegend();
     drawMovements(ctx, g);
 
     if (state.hover) {
@@ -252,32 +289,133 @@
       ctx.lineWidth = 2;
       ctx.strokeRect(sx, sy, g.cell, g.cell);
     }
+
+    if (state.filters.center) drawCenterCross(ctx, canvas, g);
   }
 
-  // Painted marks: translucent fill, solid frame, label when the cell is large enough
-  function drawMarks(ctx, g) {
+  // Small cross at the middle of the view (centerOn() puts the opened location
+  // there) with the coordinates of the cell under it as an ordered pair
+  function drawCenterCross(ctx, canvas, g) {
+    const cx = Math.round(canvas.width / 2) + 0.5;
+    const cy = Math.round(canvas.height / 2) + 0.5;
+    const arm = 7;
+    const path = () => {
+      ctx.beginPath();
+      ctx.moveTo(cx - arm, cy);
+      ctx.lineTo(cx + arm, cy);
+      ctx.moveTo(cx, cy - arm);
+      ctx.lineTo(cx, cy + arm);
+    };
+    ctx.setLineDash([]);
+    // Light halo first so the cross stays visible over dark marks and routes
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.lineWidth = 4;
+    path();
+    ctx.stroke();
+    ctx.strokeStyle = COLORS.center;
+    ctx.lineWidth = 2;
+    path();
+    ctx.stroke();
+
+    // Same cell lookup as islandAt(); nothing is shown outside the world
+    const x = Math.floor((cx - g.ox) / g.cell + 0.5);
+    const y = Math.floor((cy - g.oy) / g.cell + 0.5);
+    if (x < 0 || y < 0 || x > GRID || y > GRID) return;
+    const text = `(${x}, ${y})`;
+    ctx.font = 'bold 11px Arial';
+    const w = ctx.measureText(text).width + 6;
+    const left = cx + arm + 4;
+    const top = cy - arm - 13;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.fillRect(left, top, w, 14);
+    ctx.fillStyle = COLORS.center;
+    ctx.fillText(text, left + 3, top + 11);
+  }
+
+  // Painted marks: translucent fill, solid frame, label when the cell is large
+  // enough. Several marks (or owners) on one island split the cell into stripes,
+  // one per color, and the label shows how many.
+  function drawMarks(ctx, g, me) {
     const canvas = refs.canvas;
+    const cells = new Map();
     for (const layer of layers.data.layers) {
       if (!layer.visible) continue;
       for (const [coord, mark] of Object.entries(layer.marks)) {
         if (mark.expiresAt && mark.expiresAt <= Date.now()) continue;
-        const [x, y] = coord.split(':').map(Number);
-        const { sx, sy } = toScreen(g, x, y);
-        if (sx < -g.cell || sy < -g.cell || sx > canvas.width || sy > canvas.height) continue;
-        ctx.globalAlpha = 0.55;
-        ctx.fillStyle = mark.color;
-        ctx.fillRect(sx, sy, g.cell, g.cell);
-        ctx.globalAlpha = 1;
-        ctx.strokeStyle = mark.color;
-        ctx.lineWidth = Math.max(1.5, g.cell / 6);
-        ctx.strokeRect(sx, sy, g.cell, g.cell);
-        if (mark.label && g.cell >= 18) {
-          ctx.fillStyle = '#2a1505';
-          ctx.font = `bold ${Math.min(12, g.cell / 2.5)}px Arial`;
-          ctx.fillText(mark.label.slice(0, Math.floor(g.cell / 6)), sx + 2, sy + g.cell - 3);
+        const cell = cells.get(coord) || { colors: [], labels: [] };
+        if (mark.parts?.length) {
+          for (const part of mark.parts) {
+            cell.colors.push(part.color);
+            cell.labels.push(part.label);
+          }
+        } else {
+          cell.colors.push(mark.color);
+          if (mark.label) cell.labels.push(mark.label);
         }
+        cells.set(coord, cell);
       }
     }
+    for (const [coord, cell] of cells) {
+      const [x, y] = coord.split(':').map(Number);
+      const { sx, sy } = toScreen(g, x, y);
+      if (sx < -g.cell || sy < -g.cell || sx > canvas.width || sy > canvas.height) continue;
+      const n = cell.colors.length;
+      const stripe = g.cell / n;
+      ctx.globalAlpha = 0.6;
+      cell.colors.forEach((color, i) => {
+        ctx.fillStyle = color;
+        ctx.fillRect(sx + stripe * i, sy, i === n - 1 ? g.cell - stripe * i : stripe, g.cell);
+      });
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = n > 1 ? '#2a1505' : cell.colors[0];
+      ctx.lineWidth = Math.max(1.5, g.cell / 6);
+      ctx.strokeRect(sx, sy, g.cell, g.cell);
+      // Corner flags: green = allies of yours live here, gold = you do
+      const island = state.byCoord.get(coord);
+      if (island && g.cell >= 6) {
+        const flag = (color, right) => {
+          const f = Math.max(4, g.cell / 3);
+          ctx.fillStyle = color;
+          ctx.strokeStyle = '#2a1505';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          if (right) {
+            ctx.moveTo(sx + g.cell - f, sy);
+            ctx.lineTo(sx + g.cell, sy);
+            ctx.lineTo(sx + g.cell, sy + f);
+          } else {
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(sx + f, sy);
+            ctx.lineTo(sx, sy + f);
+          }
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        };
+        if (alliedPlayers(island, me).length) flag(COLORS.alliance, true);
+        if (isOwnIsland(island, me)) flag(COLORS.own, false);
+      }
+      if (g.cell >= 18 && (cell.labels.length || n > 1)) {
+        const text = n > 1 ? (cell.labels.length === n ? `${n}: ${cell.labels.join(', ')}` : `x${n}`) : cell.labels[0];
+        ctx.fillStyle = '#2a1505';
+        ctx.font = `bold ${Math.min(12, g.cell / 2.5)}px Arial`;
+        ctx.fillText(text.slice(0, Math.floor(g.cell / 6)), sx + 2, sy + g.cell - 3);
+      }
+    }
+  }
+
+  // Marks for the cities of a player or of an alliance (one criterion, one color).
+  // Islands where other layers coincide are striped by drawMarks().
+  function marksFromWorld(kind, text, color) {
+    const wanted = String(text || '').trim().toLowerCase();
+    const marks = {};
+    if (!wanted) return marks;
+    for (const island of state.islands) {
+      const hits = island.cities.filter((c) => (kind === 'alliance' ? c.ally : c.player) && (kind === 'alliance' ? c.ally : c.player).toLowerCase() === wanted);
+      if (!hits.length) continue;
+      marks[`${island.x}:${island.y}`] = { color, label: String(kind === 'alliance' ? hits[0].ally : hits[0].player).slice(0, 30), expiresAt: null };
+    }
+    return marks;
   }
 
   // Moment the map shows: now, or later with the time slider
@@ -296,6 +434,8 @@
     const at = viewTime();
     const pulse = 0.5 + 0.5 * Math.sin(now / 250);
     state.shipHits = [];
+    const counts = {};
+    const listed = [];
     for (const m of state.snapshot?.military?.movements || []) {
       const origin = endpointCoords(m.origin);
       const target = endpointCoords(m.target);
@@ -304,14 +444,17 @@
       const [from, to] = pos.leg === 'back' ? [target, origin] : [origin, target];
       const a = toScreen(g, from.x + 0.5, from.y + 0.5);
       const b = toScreen(g, to.x + 0.5, to.y + 0.5);
-      const color = m.hostile ? COLORS.moveHostile : m.own ? COLORS.moveOwn : COLORS.moveOther;
+      const kind = MOVE_KIND[moveKind(m)];
+      const color = COLORS[kind.color];
       const sameIsland = from.x === to.x && from.y === to.y;
       // Already arrived at the moment shown: nothing left to draw
       if (pos.phase === 'arrived') continue;
+      counts[kind.key] = (counts[kind.key] || 0) + 1;
+      listed.push({ m, pos, kind });
 
       if (!sameIsland) {
         ctx.strokeStyle = color;
-        ctx.setLineDash(m.hostile ? [] : [4, 3]);
+        ctx.setLineDash(kind.dash);
         ctx.lineWidth = m.hostile ? 2.5 : 1.5;
         ctx.beginPath();
         ctx.moveTo(a.sx, a.sy);
@@ -348,6 +491,121 @@
       }
       state.shipHits.push({ x: px, y: py, r: r + 4, m, pos });
     }
+    updateMoveCounts(counts);
+    updateMoveList(listed, at);
+  }
+
+  // Number of movements drawn per category, shown in the side legend
+  function updateMoveCounts(counts) {
+    state.moveCounts = counts;
+    for (const k of MOVE_KINDS) {
+      const node = refs.moveCounts?.[k.key];
+      const text = String(counts[k.key] || 0);
+      if (node && node.textContent !== text) node.textContent = text;
+    }
+  }
+
+  // Detail list of the movements drawn, soonest arrival first. Rebuilt only when
+  // its text changes (the countdowns change every second).
+  function updateMoveList(listed, at) {
+    if (!refs.moveList) return;
+    const { t, formatNumber } = helpers.i18n;
+    const end = (p) => (p ? `${p.name}${p.player ? ` (${p.player})` : ''}` : '-');
+    const rows = listed
+      .slice()
+      .sort((a, b) => (a.pos.end || Infinity) - (b.pos.end || Infinity))
+      .map(({ m, pos, kind }) => {
+        const forces = [m.ships ? t('militaryShipsN', { n: m.ships }) : null, m.units ? t('militaryUnitsN', { n: m.units }) : null].filter(Boolean).join(', ');
+        const cargo = (m.cargo || []).map((c) => `${t(`resourceShort_${c.resource}`)} ${formatNumber(c.amount)}`).join(', ');
+        const when = pos.phase === 'loading' ? t('mapShipLoadingShort') : pos.phase === 'atTarget' ? t('mapShipAtTarget') : pos.end ? shortLeft(pos.end - at) : '';
+        return {
+          id: m.id,
+          color: COLORS[kind.color],
+          title: m.text || m.mission || '-',
+          route: t('mapShipRoute', { from: end(m.origin), to: end(m.target) }),
+          detail: [forces, cargo].filter(Boolean).join(' | '),
+          when,
+          exact: pos.exact,
+        };
+      });
+    state.moveRows = rows;
+    const sig = JSON.stringify(rows);
+    if (sig === refs.moveListSig) return;
+    refs.moveListSig = sig;
+    refs.moveList.replaceChildren(
+      ...(rows.length
+        ? rows.map((r) =>
+            el('div', { class: 'map-move', style: { borderLeftColor: r.color } }, [
+              el('div', { class: 'map-move-head' }, [el('strong', { text: r.title }), el('span', { class: 'map-move-when', text: r.when })]),
+              el('div', { text: r.route }),
+              r.detail ? el('div', { class: 'hint', text: r.detail }) : null,
+            ].filter(Boolean))
+          )
+        : [el('span', { class: 'hint', text: t('mapMovesNone') })])
+    );
+  }
+
+  // Visible layers with their color and number of islands
+  function visibleLayerRows() {
+    return layers.data.layers
+      .filter((l) => Object.keys(l.marks).length)
+      .map((l) => {
+        const first = Object.values(l.marks)[0];
+        return { id: l.id, name: l.name, visible: !!l.visible, color: l.source?.color || first.color, count: Object.keys(l.marks).length };
+      });
+  }
+
+  function updateLayerLegend() {
+    if (!refs.layerLegend) return;
+    const { t } = helpers.i18n;
+    const rows = visibleLayerRows();
+    // Visibility changes redraw the legend with the new buttons
+    const sig = JSON.stringify(rows);
+    if (sig === refs.layerLegendSig) return;
+    refs.layerLegendSig = sig;
+    refs.layerLegend.replaceChildren(
+      ...(rows.length
+        ? rows.map((r) =>
+            el('div', { class: 'map-side-row' }, [
+              el('span', { class: 'swatch', style: { background: r.color, opacity: r.visible ? 1 : 0.3 } }),
+              el('span', { class: `map-side-text ${r.visible ? '' : 'is-off'}`, text: r.name }),
+              el('span', { class: 'map-side-count', text: String(r.count) }),
+              IkaDios.icons.button(r.visible ? 'eye' : 'eyeOff', t(r.visible ? 'layerHide' : 'layerShow'), () => {
+                const layer = layers.data.layers.find((l) => l.id === r.id);
+                if (!layer) return;
+                layer.visible = !layer.visible;
+                layers.save().then(() => {
+                  renderLayers();
+                  draw();
+                });
+              }),
+            ])
+          )
+        : [el('span', { class: 'hint', text: t('mapLayersNone') })])
+    );
+  }
+
+  function moveLegend(t) {
+    refs.moveCounts = {};
+    refs.layerLegendSig = null;
+    return el('aside', { class: 'map-side' }, [
+      el('strong', { text: t('mapMovesTitle') }),
+      ...MOVE_KINDS.map((k) =>
+        el('div', { class: 'map-side-row' }, [
+          el('span', { class: 'swatch', style: { background: COLORS[k.color] } }),
+          el('span', { class: 'map-side-text' }, [el('span', { text: t(k.label) }), el('span', { class: 'hint', text: t(`${k.label}Hint`) })]),
+          (refs.moveCounts[k.key] = el('span', { class: 'map-side-count', text: '0' })),
+        ])
+      ),
+      el('span', { class: 'hint', text: t('mapMovesLines') }),
+      el('strong', { text: t('mapLayersLegend') }),
+      (refs.layerLegend = el('div', { class: 'map-moves' })),
+    ]);
+  }
+
+  function movesPanel(t) {
+    refs.moveListSig = null;
+    return el('aside', { class: 'map-side' }, [el('strong', { text: t('mapMovesList') }), (refs.moveList = el('div', { class: 'map-moves' }))]);
   }
 
   function label(ctx, x, y, text, color, centered) {
@@ -388,6 +646,7 @@
             : '';
     return [
       el('strong', { class: m.hostile ? 'warn' : '', text: m.text || m.mission || '-' }),
+      el('div', { class: 'age', text: t(MOVE_KIND[moveKind(m)].label) }),
       el('div', { text: t('mapShipRoute', { from: end(m.origin), to: end(m.target) }) }),
       forces ? el('div', { text: forces }) : null,
       cargo ? el('div', { text: `${t('cargo')}: ${cargo}` }) : null,
@@ -434,6 +693,9 @@
       }),
       el('div', { text: t('mapCities', { n: cities.length, free: island.free ?? '-' }) }),
     ];
+    const me = identity();
+    const allies = alliedPlayers({ cities }, me);
+    if (allies.length) lines.push(el('div', { class: 'ally-line', text: t('mapAlliesHere', { names: allies.join(', ') }) }));
     if (cities.length) {
       const avg = cities.reduce((a, c) => a + (c.level || 0), 0) / cities.length;
       lines.push(el('div', { class: 'age', text: t('mapAvgLevel', { level: formatNumber(avg, { maximumFractionDigits: 1 }) }) }));
@@ -444,7 +706,7 @@
           .slice()
           .sort((a, b) => (a.ally || '').localeCompare(b.ally || '') || (a.player || '').localeCompare(b.player || ''))
           .map((c) =>
-            el('tr', { class: c.state ? `st-${c.state}` : '' }, [
+            el('tr', { class: [c.state ? `st-${c.state}` : '', me.ally && c.ally === me.ally ? 'is-ally' : ''].join(' ').trim() }, [
               el('td', { text: c.name }),
               el('td', { text: c.player }),
               el('td', { text: c.ally ? `[${c.ally}]` : '' }),
@@ -460,6 +722,7 @@
         el('div', { class: 'map-mark' }, [
           el('span', { class: 'swatch', style: { background: mark.color } }),
           ` ${layer.name}${mark.label ? `: ${mark.label}` : ''}`,
+          ...(mark.parts || []).map((p) => el('span', { class: 'map-mark' }, [el('span', { class: 'swatch', style: { background: p.color } }), ` ${p.label}`])),
           mark.expiresAt ? el('span', { class: 'age', text: ` (${t('layerExpires', { when: helpers.i18n.formatRelative(mark.expiresAt) })})` }) : null,
         ])
       );
@@ -588,7 +851,8 @@
     const canvas = refs.canvas;
     state.zoom = Math.max(state.zoom, 4);
     const { cell } = geometry();
-    state.offset = { x: canvas.width / 2 - 22 - (x - 0.5) * cell, y: canvas.height / 2 - 22 - (y - 0.5) * cell };
+    // Middle of the island's cell (toScreen gives its top-left corner at x - 0.5)
+    state.offset = { x: canvas.width / 2 - 22 - x * cell, y: canvas.height / 2 - 22 - y * cell };
     draw();
   }
 
@@ -707,7 +971,7 @@
     );
 
     const filter = (key) =>
-      el('label', { class: 'check' }, [
+      el('label', { class: 'check chip' }, [
         el('input', {
           type: 'checkbox',
           checked: state.filters[key] ? true : null,
@@ -733,6 +997,7 @@
     refs.canvas = el('canvas', { class: 'map-canvas', width: '700', height: '700' });
     refs.tip = el('div', { class: 'map-tip', hidden: true });
     refs.wrap = el('div', { class: 'map-wrap' }, [refs.canvas, refs.tip]);
+    refs.mapMain = el('div', { class: 'map-main' }, [el('div', { class: 'map-grid' }, [moveLegend(t), refs.wrap, movesPanel(t)])]);
     refs.results = el('div', { class: 'map-results' });
 
     const legend = el('div', { class: 'map-legend' }, [
@@ -741,9 +1006,8 @@
       ['occupied', 'mapLegendOccupied'],
       ['empty', 'mapLegendEmpty'],
       ['multi', 'mapLegendMulti'],
-      ['moveOwn', 'mapLegendMoveOwn'],
-      ['moveHostile', 'mapLegendMoveHostile'],
     ].map(([k, label]) => el('span', {}, [el('span', { class: 'swatch', style: { background: COLORS[k] } }), t(label)])).concat(
+      el('span', { class: 'hint', text: t('mapLegendFlags') }),
       el('span', { class: 'hint', text: t('mapLegendShipMarker') })
     ));
 
@@ -752,14 +1016,15 @@
       refs.allies,
       importPrompt(t) || '',
       searchRow,
-      el('div', { class: 'map-toolbar' }, [
-        filter('inactive'),
-        filter('vacation'),
-        filter('freeOnly'),
-        el('span', { class: 'check' }, [t('mapGoTo'), ' ', goto]),
-        el('button', { class: 'refresh', text: '+', title: t('mapZoomIn'), onclick: () => zoomAt(1.5) }),
-        el('button', { class: 'refresh', text: '-', title: t('mapZoomOut'), onclick: () => zoomAt(1 / 1.5) }),
-        el('button', { class: 'refresh', text: t('mapReload'), title: t('mapReloadHint'), onclick: () => loadWorld(true) }),
+      el('div', { class: 'map-toolbar main-tools' }, [
+        el('span', { class: 'chip-group' }, [filter('inactive'), filter('vacation'), filter('freeOnly'), filter('center')]),
+        el('span', { class: 'tool-sep' }),
+        el('label', { class: 'check' }, [t('mapGoTo'), ' ', goto]),
+        el('span', { class: 'btn-group' }, [
+          el('button', { class: 'refresh', text: '-', title: t('mapZoomOut'), 'aria-label': t('mapZoomOut'), onclick: () => zoomAt(1 / 1.5) }),
+          el('button', { class: 'refresh', text: '+', title: t('mapZoomIn'), 'aria-label': t('mapZoomIn'), onclick: () => zoomAt(1.5) }),
+        ]),
+        el('span', { class: 'tool-sep' }),
         (refs.paintBtn = el('button', {
           class: `refresh ${state.paint.on ? 'is-running' : ''}`,
           text: t('layerPaint'),
@@ -779,12 +1044,15 @@
             refs.shareSlot.replaceChildren(open ? '' : sharePanel(t));
           },
         }),
-        refs.status,
+        el('span', { class: 'status-text' }, [
+          refs.status,
+          el('button', { class: 'btn-soft', text: t('mapReload'), title: t('mapReloadHint'), onclick: () => loadWorld(true) }),
+        ]),
       ]),
       (refs.timeBar = timeBar(t)),
       (refs.shareSlot = el('div')),
       (refs.paintBar = paintBar(t)),
-      refs.wrap,
+      refs.mapMain,
       legend,
       (refs.layers = el('div', { class: 'map-layers' })),
       refs.results
@@ -856,7 +1124,7 @@
       refs.timeRange,
       refs.timeText,
       el('button', {
-        class: 'link',
+        class: 'btn-soft',
         text: t('mapTimeNow'),
         onclick: () => {
           state.timeOffsetMin = 0;
@@ -888,8 +1156,102 @@
 
   // ---------- Share the map ----------
 
+  // PNG for sharing and download: the map between the color legend (left) and
+  // the list of active movements (right), like the tab shows them
   function canvasBlob() {
-    return new Promise((resolve) => refs.canvas.toBlob(resolve, 'image/png'));
+    const { t } = helpers.i18n;
+    const map = refs.canvas;
+    const L = 230;
+    const R = 300;
+    const PAD = 10;
+    const font = (bold) => `${bold ? 'bold ' : ''}12px Arial`;
+    const measureCtx = document.createElement('canvas').getContext('2d');
+    // Wrapped lines of a text for a given width
+    const wrap = (ctx, text, width, bold) => {
+      ctx.font = font(bold);
+      const lines = [];
+      let line = '';
+      for (const word of String(text).split(/\s+/)) {
+        const next = line ? `${line} ${word}` : word;
+        if (line && ctx.measureText(next).width > width) {
+          lines.push(line);
+          line = word;
+        } else line = next;
+      }
+      if (line) lines.push(line);
+      return lines;
+    };
+    // One pass lays the blocks out; with a context it also paints them
+    const layout = (ctx, x0, items) => {
+      const m = ctx || measureCtx;
+      let y = PAD;
+      const text = (str, bold, color, xOff = 0, width = 0) => {
+        for (const ln of wrap(m, str, (width || (items.width - xOff)) - PAD, bold)) {
+          y += 15;
+          if (ctx) {
+            ctx.font = font(bold);
+            ctx.fillStyle = color;
+            ctx.fillText(ln, x0 + PAD + xOff, y);
+          }
+        }
+      };
+      for (const it of items.list) {
+        if (it.title) text(it.title, true, '#2a1505');
+        if (it.color) {
+          const start = y;
+          if (ctx && !items.bar) {
+            ctx.fillStyle = it.color;
+            ctx.fillRect(x0 + PAD, start + 4, 12, 12);
+          }
+          text(it.head, true, '#2a1505', items.bar ? 10 : 18);
+          if (it.sub) text(it.sub, false, '#5a4630', items.bar ? 10 : 18);
+          if (it.sub2) text(it.sub2, false, '#5a4630', items.bar ? 10 : 18);
+          if (ctx && items.bar) {
+            ctx.fillStyle = it.color;
+            ctx.fillRect(x0 + PAD, start + 3, 4, y - start - 1);
+          }
+          y += items.bar ? 6 : 4;
+        }
+        if (it.note) text(it.note, false, '#5a4630');
+      }
+      return y + PAD;
+    };
+    const left = {
+      width: L,
+      list: [
+        { title: t('mapMovesTitle') },
+        ...MOVE_KINDS.map((k) => ({ color: COLORS[k.color], head: `${t(k.label)} (${state.moveCounts?.[k.key] || 0})`, sub: t(`${k.label}Hint`) })),
+        { note: t('mapMovesLines') },
+        { title: t('mapLayersLegend') },
+        ...(visibleLayerRows().some((r) => r.visible)
+          ? visibleLayerRows().filter((r) => r.visible).map((r) => ({ color: r.color, head: `${r.name} (${r.count})` }))
+          : [{ note: t('mapLayersNone') }]),
+      ],
+    };
+    const rows = state.moveRows || [];
+    const right = {
+      width: R,
+      bar: true,
+      list: [
+        { title: t('mapMovesList') },
+        ...(rows.length
+          ? rows.map((r) => ({ color: r.color, head: r.when ? `${r.title}  -  ${r.when}` : r.title, sub: r.route, sub2: r.detail }))
+          : [{ note: t('mapMovesNone') }]),
+      ],
+    };
+    const height = Math.max(map.height, layout(null, 0, left), layout(null, 0, right));
+    const out = document.createElement('canvas');
+    out.width = L + map.width + R;
+    out.height = height;
+    const ctx = out.getContext('2d');
+    ctx.fillStyle = COLORS.background;
+    ctx.fillRect(0, 0, out.width, out.height);
+    ctx.drawImage(map, L, 0);
+    ctx.strokeStyle = COLORS.axis;
+    ctx.strokeRect(L - 0.5, 0.5, 0, height);
+    layout(ctx, 0, left);
+    layout(ctx, L + map.width, right);
+    return new Promise((resolve) => out.toBlob(resolve, 'image/png'));
   }
 
   function blobToDataUrl(blob) {
@@ -922,7 +1284,7 @@
     };
 
     const discord = el('button', {
-      class: 'refresh',
+      class: 'refresh discord',
       text: t('sendToDiscord'),
       onclick: () =>
         busy(async () => {
@@ -972,6 +1334,8 @@
         }),
     });
 
+    IkaDios.icons.brand(discord, 'discord');
+    IkaDios.icons.brand(whatsapp, 'whatsapp');
     return el('div', { class: 'map-toolbar share-bar' }, [
       el('strong', { text: t('mapShare') }),
       el('span', {
@@ -1008,7 +1372,7 @@
           },
         }),
         el('button', {
-          class: 'link',
+          class: 'btn-soft danger',
           text: t('deliveryDiscard'),
           onclick: () => {
             IkaDios.mapImport = null;
@@ -1116,9 +1480,17 @@
                   data.activeLayerId = layer.id;
                   layers.save().then(renderLayers);
                 }),
+            layer.source
+              ? IkaDios.icons.button('retry', t('layerRebuild'), async () => {
+                  const n = await layers.replaceMarks(layer, marksFromWorld(layer.source.kind, layer.source.text, layer.source.color));
+                  renderLayers();
+                  draw();
+                  refs.layerMsg.textContent = t('layerFromTextCreated', { n });
+                })
+              : null,
             IkaDios.icons.button('download', t('optExport'), () => download(`ikadios-layer-${layer.name.replace(/[^\w.-]+/g, '_')}.json`, layers.exportLayer(layer))),
             IkaDios.icons.button(
-              'send',
+              'discord',
               t('sendToDiscord'),
               async () => {
                 const res = await chrome.runtime.sendMessage({ type: 'ikadios:discordMapLayer', layer: layers.exportLayer(layer) }).catch(() => null);
@@ -1144,12 +1516,59 @@
         newName,
         el('button', { class: 'refresh', text: t('layerAdd'), onclick: () => { if (newName.value.trim()) layers.addLayer(newName.value.trim()).then(renderLayers); } }),
         el('button', { class: 'refresh', text: t('layerFromText'), onclick: () => { refs.textBox.hidden = !refs.textBox.hidden; } }),
+        el('button', { class: 'refresh', text: t('layerFromWorld'), onclick: () => { refs.worldBox.hidden = !refs.worldBox.hidden; } }),
         el('button', { class: 'refresh', text: t('layerImport'), onclick: () => importInput.click() }),
         importInput,
         refs.layerMsg,
       ]),
-      (refs.textBox = layerFromTextBox(t))
+      (refs.textBox = layerFromTextBox(t)),
+      (refs.worldBox = layerFromWorldBox(t))
     );
+  }
+
+  // New layer with the cities of a player or an alliance
+  function layerFromWorldBox(t) {
+    let color = layers.COLORS[1];
+    const kind = el('select', {}, [el('option', { value: 'player', text: t('mapPlayer') }), el('option', { value: 'alliance', text: t('mapAlliance') })]);
+    const who = el('input', { type: 'text', maxlength: '40', placeholder: t('layerWorldPlaceholder'), list: 'ikadios-players' });
+    kind.onchange = () => who.setAttribute('list', kind.value === 'alliance' ? 'ikadios-allies' : 'ikadios-players');
+    const swatches = layers.COLORS.map((c) => {
+      const b = el('button', {
+        class: `swatch-btn ${c === color ? 'is-active' : ''}`,
+        style: { background: c },
+        onclick: () => {
+          color = c;
+          for (const s of swatches) s.classList.toggle('is-active', s === b);
+        },
+      });
+      return b;
+    });
+    const preview = el('span', { class: 'age' });
+    who.oninput = () => {
+      preview.textContent = t('layerFromTextFound', { n: Object.keys(marksFromWorld(kind.value, who.value, color)).length });
+    };
+    const create = el('button', {
+      class: 'refresh',
+      text: t('layerFromTextCreate'),
+      onclick: async () => {
+        const marks = marksFromWorld(kind.value, who.value, color);
+        if (!Object.keys(marks).length) {
+          preview.textContent = t('layerFromTextFound', { n: 0 });
+          return;
+        }
+        const name = kind.value === 'alliance' ? `[${who.value.trim()}]` : who.value.trim();
+        const n = await layers.addLayerFromMarks(name, marks, { kind: kind.value, text: who.value.trim(), color });
+        renderLayers();
+        draw();
+        refs.layerMsg.textContent = t('layerFromTextCreated', { n });
+      },
+    });
+    return el('div', { class: 'trade-form layer-text', hidden: true }, [
+      el('strong', { text: t('layerFromWorld') }),
+      el('div', { class: 'trade-row' }, [kind, who, ...swatches]),
+      el('div', { class: 'trade-row' }, [create, preview]),
+      el('p', { class: 'age', text: t('layerFromWorldHint') }),
+    ]);
   }
 
   // Paste coordinates (e.g. a layer message from Discord / WhatsApp) into a new layer

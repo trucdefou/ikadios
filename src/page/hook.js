@@ -82,6 +82,9 @@
       for (const resolve of feedbackWaiters.splice(0)) resolve({ ok: !errors.length, errors, messages });
     }
     if (actions.length) post('ajax', actions, { url: stripToken(url), body: stripToken(body) });
+    // The world map may have just been opened through the game's AJAX loader
+    // (cheap when it is not: patchWorldmap returns at once without window.worldmap)
+    setTimeout(patchWorldmap, 300);
     const tokenMatch = /"actionRequest"\s*:\s*"([^"]+)"/.exec(text);
     if (tokenMatch) reportToken(tokenMatch[1]);
   }
@@ -335,6 +338,43 @@
     return { ok: true, kept, message: result.messages.join(' ') };
   }
 
+  // --- World map: island coordinates on every island tile ---
+  // The game reuses a fixed pool of tiles (#map1 > div#tile_i_j) and repaints them
+  // with worldmap.drawPiece(tile, x, y), which also sets tile.mapX / tile.mapY.
+  // Copy the coordinates into a data attribute; a CSS ::after shows it.
+  const COORDS_STYLE_ID = 'ikadios-worldmap-coords';
+  const COORDS_CSS = `#worldmap .islandTile[data-ikadios-xy]::after {
+    content: attr(data-ikadios-xy); position: absolute; left: 50%; top: 22px;
+    transform: translateX(-50%) scale(var(--ikadios-label-scale, 1)); transform-origin: 50% 0;
+    padding: 0 4px; border-radius: 3px;
+    font: bold 11px Arial, sans-serif; color: #fff; background: rgba(0, 0, 0, 0.6);
+    white-space: nowrap; pointer-events: none; z-index: 5;
+  }`;
+
+  function patchWorldmap() {
+    const map = window.worldmap;
+    if (!map || typeof map.drawPiece !== 'function') return;
+    if (!map.drawPiece.ikadiosPatched) {
+      const original = map.drawPiece;
+      const patched = function (tile, x, y) {
+        const result = original.apply(this, arguments);
+        if (tile?.dataset) tile.dataset.ikadiosXy = `${x}:${y}`;
+        return result;
+      };
+      patched.ikadiosPatched = true;
+      map.drawPiece = patched;
+    }
+    for (const tile of document.querySelectorAll('#worldmap [id^="tile_"]')) {
+      if (tile.mapX != null) tile.dataset.ikadiosXy = `${tile.mapX}:${tile.mapY}`;
+    }
+    if (!document.getElementById(COORDS_STYLE_ID) && document.head) {
+      const style = document.createElement('style');
+      style.id = COORDS_STYLE_ID;
+      style.textContent = COORDS_CSS;
+      document.head.appendChild(style);
+    }
+  }
+
   let tries = 0;
   function pollModel() {
     const model = pickModel();
@@ -399,6 +439,10 @@
     }
   });
 
-  if (document.readyState === 'complete') pollModel();
-  else window.addEventListener('load', pollModel, { once: true });
+  function onLoad() {
+    pollModel();
+    patchWorldmap();
+  }
+  if (document.readyState === 'complete') onLoad();
+  else window.addEventListener('load', onLoad, { once: true });
 })();

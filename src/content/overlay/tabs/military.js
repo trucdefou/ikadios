@@ -538,7 +538,7 @@
         ? el('div', { class: 'map-toolbar' }, [
             viable.length ? el('label', { class: 'check' }, [t('planGoFrom'), city]) : null,
             viable.length ? el('button', { class: 'refresh', text: t('planConfirmGoing'), onclick: () => confirm('going') }) : null,
-            el('button', { class: 'link', text: t('planConfirmCant'), onclick: () => confirm('cant') }),
+            el('button', { class: 'btn-soft danger', text: t('planConfirmCant'), onclick: () => confirm('cant') }),
             status,
           ])
         : el('p', { class: 'hint', text: t('planConfirmNeedsBot') }),
@@ -675,7 +675,7 @@
       el('p', { class: 'age' }, [
         t('updated', { when: i18n.formatRelative(snapshot?.military?.updatedAt) }),
         ' ',
-        el('button', { class: 'link', text: t('openMilitaryAdvisor'), onclick: () => goToView('militaryAdvisor') }),
+        el('button', { class: 'btn-soft', text: t('openMilitaryAdvisor'), onclick: () => goToView('militaryAdvisor') }),
       ]),
       el('h3', { class: 'section-title', text: t('plans') }),
       plansSection(container, snapshot, i18n, countdown, openTab, rerender),
@@ -686,7 +686,7 @@
       el('p', { class: 'age' }, [
         snapshot?.military?.combatsUpdatedAt ? t('updated', { when: i18n.formatRelative(snapshot.military.combatsUpdatedAt) }) : t('battlesHint'),
         ' ',
-        el('button', { class: 'link', text: t('openWarReports'), onclick: () => goToView('militaryAdvisorCombatList', { activeTab: 'tab_militaryAdvisorCombatList' }) }),
+        el('button', { class: 'btn-soft', text: t('openWarReports'), onclick: () => goToView('militaryAdvisorCombatList', { activeTab: 'tab_militaryAdvisorCombatList' }) }),
       ]),
       el('h3', { class: 'section-title', text: t('militaryUnits') }),
       matrix(cities, 'units', names, i18n, 'garrisonLand'),
