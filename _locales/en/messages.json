@@ -488,6 +488,12 @@
   "packErrUnknownAdvisor": {
     "message": "unknown advisor"
   },
+  "packErrBuildings": {
+    "message": "invalid buildings section"
+  },
+  "packErrUnknownBuilding": {
+    "message": "unknown building"
+  },
   "packErrImageType": {
     "message": "unsupported image type (use PNG, JPG, WebP or GIF)"
   },

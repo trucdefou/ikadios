@@ -488,6 +488,12 @@
   "packErrUnknownAdvisor": {
     "message": "consejero desconocido"
   },
+  "packErrBuildings": {
+    "message": "sección de edificios no válida"
+  },
+  "packErrUnknownBuilding": {
+    "message": "edificio desconocido"
+  },
   "packErrImageType": {
     "message": "tipo de imagen no admitido (usa PNG, JPG, WebP o GIF)"
   },

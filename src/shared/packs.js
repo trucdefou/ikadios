@@ -12,6 +12,14 @@
   const STATES = ['normal', 'active', 'alert', 'premium', 'premiumActive', 'premiumAlert'];
   // contain: keep the image ratio inside the 90x108 advisor slot; fill: stretch to it
   const FITS = ['contain', 'fill'];
+  // Optional city view skins, one image per building type (the class the game puts
+  // on #locations > .building next to the position, e.g. "building townHall")
+  const BUILDINGS = [
+    'townHall', 'academy', 'warehouse', 'tavern', 'palace', 'palaceColony', 'museum', 'port', 'shipyard', 'barracks',
+    'wall', 'embassy', 'branchOffice', 'workshop', 'safehouse', 'forester', 'glassblowing', 'alchemist', 'winegrower',
+    'stonemason', 'carpentering', 'optician', 'fireworker', 'vineyard', 'architect', 'temple', 'dump', 'pirateFortress',
+    'blackMarket', 'marineChartArchive',
+  ];
   const ORIGINAL_ID = 'original';
 
   const ALLOWED_MIME = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];
@@ -83,6 +91,16 @@
         total += img.length;
       }
     }
+    if (pack.buildings != null && typeof pack.buildings !== 'object') errors.push('packErrBuildings');
+    for (const [building, img] of Object.entries(pack.buildings || {})) {
+      if (!BUILDINGS.includes(building)) {
+        errors.push('packErrUnknownBuilding');
+        continue;
+      }
+      if (typeof img !== 'string' || !ALLOWED_MIME.includes(dataUrlMime(img))) errors.push('packErrImageType');
+      else if (img.length > MAX_IMAGE_CHARS) errors.push('packErrImageSize');
+      else total += img.length;
+    }
     if (total > MAX_PACK_CHARS) errors.push('packErrPackSize');
     return { ok: errors.length === 0, errors: [...new Set(errors)] };
   }
@@ -103,6 +121,11 @@
       if (entry.label) out.label = entry.label;
       if (Object.keys(out).length) clean.advisors[advisor] = out;
     }
+    const buildings = {};
+    for (const building of BUILDINGS) {
+      if (typeof pack.buildings?.[building] === 'string') buildings[building] = pack.buildings[building];
+    }
+    if (Object.keys(buildings).length) clean.buildings = buildings;
     return clean;
   }
 
@@ -164,6 +187,7 @@
     FORMAT_VERSION,
     ADVISORS,
     STATES,
+    BUILDINGS,
     FITS,
     ORIGINAL_ID,
     ALLOWED_MIME,

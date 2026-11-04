@@ -288,6 +288,11 @@ def main():
         'fit': 'fill',
         'advisors': {key: {state: data_url(img) for state, img in states.items()} for key, states in rendered.items()},
     }
+    # Building skins come from make_building_pack.py; keep them when regenerating
+    if out_path.exists():
+        previous = json.loads(out_path.read_text(encoding='utf-8'))
+        if previous.get('buildings'):
+            pack['buildings'] = previous['buildings']
     out_path.parent.mkdir(exist_ok=True)
     out_path.write_text(json.dumps(pack, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'{out_path.relative_to(ROOT)}: {out_path.stat().st_size // 1024} KB')

@@ -1,0 +1,122 @@
+{
+  "townHall": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian town hall (a small sandstone palace with lotus-capital columns, a pylon gateway, blue and gold painted details and a flat roof with a small gilded obelisk). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones with a palm tree. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "academy": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian academy (a sandstone house of life with papyrus-bundle columns, a small observatory platform with a bronze astrolabe on the roof, scroll racks and hieroglyph-carved walls with blue and gold details). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones with a palm tree. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "warehouse": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian warehouse (a mud-brick and sandstone granary with domed grain silos, a columned loading porch, stacked clay amphorae, sacks and wooden crates, blue painted door frame). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "tavern": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian tavern (a cozy sandstone beer house with a striped linen awning, a reed-roofed terrace, large clay beer jars, a wooden bench and grape vines, blue and ochre painted walls). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones with a palm tree. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "port": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian trading port (a sandstone harbour pier with stone quays reaching into the water, a small pylon gate tower with a gilded obelisk, a wooden cargo crane, crates and amphorae on the docks, one small papyrus boat moored). Classic 2:1 isometric view seen from the front-left, the docks extending toward the lower left into a small patch of turquoise water, the whole structure fully visible and centered. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the structure and its small patch of water, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_4_3"
+  },
+  "shipyard": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian shipyard (a sandstone slipway sloping into the water, a half-built wooden war galley with a curved papyrus-shaped prow on the slipway, wooden scaffolding, stacked cedar logs and a small workshop with a reed roof). Classic 2:1 isometric view seen from the front-left, the slipway reaching toward the lower left into a small patch of turquoise water, the whole structure fully visible and centered. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the structure and its small patch of water, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_3_2"
+  },
+  "palace": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian royal palace (a grand sandstone palace with a tall pylon entrance, colossal columns with lotus capitals, golden pharaoh statues flanking the gate, blue and gold banners and a rooftop garden). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones with palm trees. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "palaceColony": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian governor's residence (a smaller elegant sandstone mansion with a columned portico, a small pylon gate, a reflecting pool with lotus flowers, blue painted cornices and a single gilded obelisk). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones with a palm tree. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "museum": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian museum (a sandstone temple-like hall with a columned facade, a golden sarcophagus and a sphinx statue on display in an open courtyard, painted hieroglyph friezes in blue, red and gold). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "barracks": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian barracks (a fortified mud-brick and sandstone compound with crenellated walls, a training yard with weapon racks of spears, khopesh swords and painted shields, archery targets and red and white banners). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "wall": {
+    "prompt": "Isometric city-builder game sprite: a short straight segment of an ancient Egyptian city wall made of sandstone blocks with crenellations, one square watchtower with a blue and gold banner and a small gate, running diagonally from the lower left to the upper right in classic 2:1 isometric view, on a thin strip of sand. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around it, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_16_9"
+  },
+  "embassy": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian embassy (a dignified sandstone hall with a columned entrance, foreign flags and Egyptian banners on tall poles, a courtyard with a fountain and gift chests of gold and ivory). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "branchOffice": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian trading post (a busy sandstone market house with striped awnings, stalls of spices, cloth bolts and pottery, scales for weighing goods, and stacked trade crates). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "workshop": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian weapons workshop (a sandstone forge with a smoking chimney, an anvil, bronze shields and spear heads on racks, bellows and a cart of copper ingots). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "safehouse": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian spies' hideout (a modest, shadowy mud-brick house with a closed wooden door, a narrow alley, a reed screen, a hidden trapdoor and a small watch window). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "forester": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian forester's house (a timber and mud-brick lodge among acacia and palm trees, stacked logs, a saw horse and axes). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "glassblowing": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian glassblowing workshop (a sandstone workshop with a domed furnace glowing orange, colorful blue and turquoise glass vessels on shelves and a cooling rack). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "alchemist": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian alchemist's tower (a slender sandstone tower with a glowing brazier on top, yellow sulfur crystals in baskets, copper alembics and bubbling clay pots in a small yard). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "winegrower": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian winegrower's estate (a sandstone farmhouse surrounded by grape vines on wooden pergolas, baskets of purple grapes and clay wine jars). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "stonemason": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian stonemason's yard (a sandstone workshop with large cut marble and granite blocks, a half-carved sphinx statue, chisels, a wooden sled and ramps). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "carpentering": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian carpenter's workshop (a timber and mud-brick workshop with a reed roof, planks, a lathe, half-built chairs and chests, wood shavings and cedar logs). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "optician": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian optician's workshop (a sandstone workshop with polished crystal lenses, a bronze telescope on the roof terrace and shelves of glittering rock crystal). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "fireworker": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian fireworks test area (a walled sandstone yard with clay pots of black powder, rocket racks, a small bunker with a reed roof and colorful sparks). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "vineyard": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian wine press (a sandstone pressing house with a large stone treading vat full of purple grapes, a wooden lever press and rows of sealed clay wine amphorae). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "architect": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian architect's office (a sandstone office with papyrus building plans on tables, a small model pyramid, measuring rods, a set square and a plumb line). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "temple": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian temple (a sacred sandstone temple with a pylon gateway, two obelisks, a sphinx avenue, papyrus columns and a golden sun disc above the entrance). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "dump": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian storage depot (an open sandstone yard with large piles of goods under reed shelters, stacked amphorae, sacks and crates and a simple fence). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "pirateFortress": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian pirate fortress (a rough sandstone and timber stronghold on a rocky outcrop with a watchtower, black sails, wooden palisades, treasure chests and a moored dark raider ship). Classic 2:1 isometric view seen from the front-left, the fortress standing on rocks with a small patch of turquoise water at the lower left, the whole structure fully visible and centered. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the structure and its small patch of water, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_4_3"
+  },
+  "blackMarket": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian black market (a shady sandstone bazaar with dark striped awnings, piled contraband crates, a hidden back entrance and dim oil lamps). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  },
+  "marineChartArchive": {
+    "prompt": "Isometric city-builder game building sprite: an ancient Egyptian sea chart archive (a sandstone library with a tall lighthouse-like tower, rolled papyrus sea charts in niches, a large bronze globe and a ship model on the terrace). Classic 2:1 isometric view seen from the front-left, the whole building fully visible and centered, standing on a small diamond-shaped plot of sand and paving stones. Detailed painted semi-realistic style like a 2010s browser strategy game, warm sunlight from the upper left. Plain flat solid pure magenta background (#FF00FF) everywhere around the plot, no ground beyond the plot, no text, no people, no frame.",
+    "aspectRatio": "LANDSCAPE_5_4"
+  }
+}
